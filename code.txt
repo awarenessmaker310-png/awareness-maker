@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صانع وعي - Awareness Maker | منصة المعرفة الشاملة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        .premium-badge {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #333;
+        }
+        .free-badge {
+            background: linear-gradient(45deg, #4ade80, #22c55e);
+        }
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
+        }
+        .modal {
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold mb-4">🌟 <span class="inline-block">صانع وعي</span> - <span class="inline-block" dir="ltr">Awareness Maker</span></h1>
+                <p class="text-xl mb-8 opacity-90">منصة المعرفة الشاملة - كل ما تحتاجه من معرفة وخدمات في مكان واحد</p>
+                <div class="flex justify-center space-x-4 space-x-reverse">
+                    <button onclick="showLogin()" class="bg-white text-purple-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all">
+                        تسجيل الدخول
+                    </button>
+                    <button onclick="showRegister()" class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all">
+                        إنشاء حساب
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Grid -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">خدماتنا المتنوعة</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- الكتب الإلكترونية -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">📚</div>
+                    <h3 class="text-xl font-semibold mb-3">الكتب الإلكترونية</h3>
+                    <p class="text-gray-600 mb-4 text-sm">مكتبة ضخمة من الكتب للقراءة المجانية</p>
+                    <div class="premium-badge text-xs px-3 py-1 rounded-full mb-4 inline-block font-semibold">
+                        2000 د.ع شهرياً
+                    </div>
+                    <button onclick="openSection('ebooks')" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                        استكشف المكتبة
+                    </button>
+                </div>
+
+                <!-- النصائح -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">💡</div>
+                    <h3 class="text-xl font-semibold mb-3">النصائح الذهبية</h3>
+                    <p class="text-gray-600 mb-4 text-sm">نصائح حياتية قيمة ومفيدة</p>
+                    <div class="premium-badge text-xs px-3 py-1 rounded-full mb-4 inline-block font-semibold">
+                        2000 د.ع شهرياً
+                    </div>
+                    <button onclick="openSection('tips')" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors">
+                        اكتشف النصائح
+                    </button>
+                </div>
+
+                <!-- الأبراج -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">🔮</div>
+                    <h3 class="text-xl font-semibold mb-3">معرفة الأبراج</h3>
+                    <p class="text-gray-600 mb-4 text-sm">اكتشف برجك بحساب الجمل</p>
+                    <div class="free-badge text-xs px-3 py-1 rounded-full mb-4 inline-block font-semibold text-white">
+                        مجاني
+                    </div>
+                    <button onclick="openSection('horoscope')" class="w-full bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600 transition-colors">
+                        اكتشف برجك
+                    </button>
+                </div>
+
+                <!-- العلوم الدينية -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">🕌</div>
+                    <h3 class="text-xl font-semibold mb-3">العلوم الدينية</h3>
+                    <p class="text-gray-600 mb-4 text-sm">معلومات دينية موثقة ومفيدة</p>
+                    <div class="free-badge text-xs px-3 py-1 rounded-full mb-4 inline-block font-semibold text-white">
+                        مجاني
+                    </div>
+                    <button onclick="openSection('religion')" class="w-full bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 transition-colors">
+                        تصفح المحتوى
+                    </button>
+                </div>
+
+                <!-- الاستشارات -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-semibold mb-3">الاستشارات</h3>
+                    <p class="text-gray-600 mb-4 text-sm">استشارات متخصصة في جميع المجالات</p>
+                    <div class="premium-badge text-xs px-3 py-1 rounded-full mb-4 inline-block font-semibold">
+                        2000 د.ع للاستشارة
+                    </div>
+                    <button onclick="openSection('consultation')" class="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors">
+                        احجز استشارة
+                    </button>
+                </div>
+
+                <!-- التبرعات -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover pulse-glow">
+                    <div class="text-4xl mb-4">❤️</div>
+                    <h3 class="text-xl font-semibold mb-3">التبرعات</h3>
+                    <p class="text-gray-600 mb-4 text-sm">ساهم في مساعدة الأيتام والفقراء</p>
+                    <div class="free-badge text-xs px-3 py-1 rounded-full mb-4 inline-block font-semibold text-white">
+                        عمل خيري
+                    </div>
+                    <button onclick="openSection('donations')" class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-colors">
+                        تبرع الآن
+                    </button>
+                </div>
+
+                <!-- التخدير والعناية المركزة -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">🏥</div>
+                    <h3 class="text-xl font-semibold mb-3">التخدير والعناية</h3>
+                    <p class="text-gray-600 mb-4 text-sm">معلومات طبية متخصصة</p>
+                    <div class="free-badge text-xs px-3 py-1 rounded-full mb-4 inline-block font-semibold text-white">
+                        مجاني
+                    </div>
+                    <button onclick="openSection('medical')" class="w-full bg-teal-500 text-white py-2 rounded-lg hover:bg-teal-600 transition-colors">
+                        المعلومات الطبية
+                    </button>
+                </div>
+
+                <!-- الحاسوب والبرامج -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">💻</div>
+                    <h3 class="text-xl font-semibold mb-3">الحاسوب والبرامج</h3>
+                    <p class="text-gray-600 mb-4 text-sm">تعلم الحاسوب والبرامج</p>
+                    <div class="free-badge text-xs px-3 py-1 rounded-full mb-4 inline-block font-semibold text-white">
+                        مجاني
+                    </div>
+                    <button onclick="openSection('computer')" class="w-full bg-indigo-500 text-white py-2 rounded-lg hover:bg-indigo-600 transition-colors">
+                        تعلم التقنية
+                    </button>
+                </div>
+
+                <!-- الأفلام والمسلسلات -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">🎬</div>
+                    <h3 class="text-xl font-semibold mb-3">الأفلام والمسلسلات</h3>
+                    <p class="text-gray-600 mb-4 text-sm">أفضل الأفلام والمسلسلات</p>
+                    <div class="premium-badge text-xs px-3 py-1 rounded-full mb-4 inline-block font-semibold">
+                        1000 د.ع شهرياً
+                    </div>
+                    <button onclick="openSection('movies')" class="w-full bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition-colors">
+                        شاهد الآن
+                    </button>
+                </div>
+
+                <!-- برامج الحاسوب -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-semibold mb-3">برامج الحاسوب</h3>
+                    <p class="text-gray-600 mb-4 text-sm">برامج مفعلة وجاهزة للتحميل</p>
+                    <div class="premium-badge text-xs px-3 py-1 rounded-full mb-4 inline-block font-semibold">
+                        5000 د.ع شهرياً
+                    </div>
+                    <button onclick="openSection('software')" class="w-full bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition-colors">
+                        تحميل البرامج
+                    </button>
+                </div>
+
+                <!-- النصائح الزوجية -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">💕</div>
+                    <h3 class="text-xl font-semibold mb-3">النصائح الزوجية</h3>
+                    <p class="text-gray-600 mb-4 text-sm">أسرار العلاقة الزوجية الناجحة</p>
+                    <div class="premium-badge text-xs px-3 py-1 rounded-full mb-4 inline-block font-semibold">
+                        2000 د.ع شهرياً
+                    </div>
+                    <button onclick="openSection('marriage')" class="w-full bg-rose-500 text-white py-2 rounded-lg hover:bg-rose-600 transition-colors">
+                        النصائح الزوجية
+                    </button>
+                </div>
+
+                <!-- الاستماع للمشاكل -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">🤝</div>
+                    <h3 class="text-xl font-semibold mb-3">الاستماع والحلول</h3>
+                    <p class="text-gray-600 mb-4 text-sm">مساحة آمنة لطرح مشاكلك</p>
+                    <div class="premium-badge text-xs px-3 py-1 rounded-full mb-4 inline-block font-semibold">
+                        5000 د.ع شهرياً
+                    </div>
+                    <button onclick="openSection('problems')" class="w-full bg-violet-500 text-white py-2 rounded-lg hover:bg-violet-600 transition-colors">
+                        احصل على المساعدة
+                    </button>
+                </div>
+
+                <!-- توقعات الأبراج -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="text-xl font-semibold mb-3">توقعات الأبراج</h3>
+                    <p class="text-gray-600 mb-4 text-sm">توقعات يومية وأسبوعية محدثة</p>
+                    <div class="premium-badge text-xs px-3 py-1 rounded-full mb-4 inline-block font-semibold">
+                        2000 د.ع شهرياً
+                    </div>
+                    <button onclick="openSection('predictions')" class="w-full bg-amber-500 text-white py-2 rounded-lg hover:bg-amber-600 transition-colors">
+                        اقرأ التوقعات
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 modal">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 id="modalTitle" class="text-2xl font-bold"></h3>
+                        <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+                    </div>
+                    <div id="modalContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-2xl font-bold mb-4"><span class="inline-block">صانع وعي</span> - <span class="inline-block" dir="ltr">Awareness Maker</span></h3>
+            <p class="opacity-80 mb-4">منصة متكاملة لجميع احتياجاتك المعرفية والترفيهية</p>
+            <div class="mb-4">
+                <p class="opacity-90 mb-2">📧 للتواصل معنا:</p>
+                <a href="mailto:awarenessmaker310@gmail.com" class="text-yellow-300 hover:text-yellow-100 underline">
+                    awarenessmaker310@gmail.com
+                </a>
+                <p class="text-sm opacity-70 mt-2">* سيتم إضافة أرقام الهاتف والواتساب والتليغرام قريباً</p>
+            </div>
+            <div class="text-sm opacity-70">© 2025 جميع الحقوق محفوظة</div>
+        </div>
+    </footer>
+
+    <script>
+        // User data simulation
+        let currentUser = null;
+        let userSubscriptions = JSON.parse(localStorage.getItem('userSubscriptions')) || {};
+
+        // Horoscope calculation using Abjad (حساب الجمل الكبير)
+        const abjadValues = {
+            'ا': 1, 'ب': 2, 'ج': 3, 'د': 4, 'ه': 5, 'و': 6,
+            'ز': 7, 'ح': 8, 'ط': 9, 'ي': 10, 'ك': 20, 'ل': 30,
+            'م': 40, 'ن': 50, 'س': 60, 'ع': 70, 'ف': 80, 'ص': 90,
+            'ق': 100, 'ر': 200, 'ش': 300, 'ت': 400, 'ث': 500, 'خ': 600,
+            'ذ': 700, 'ض': 800, 'ظ': 900, 'غ': 1000
+        };
+
+        const horoscopes = [
+            'الحمل ♈', 'الثور ♉', 'الجوزاء ♊', 'السرطان ♋', 
+            'الأسد ♌', 'العذراء ♍', 'الميزان ♎', 'العقرب ♏',
+            'القوس ♐', 'الجدي ♑', 'الدلو ♒', 'الحوت ♓'
+        ];
+
+        function calculateAbjad(text) {
+            let sum = 0;
+            for (let char of text) {
+                if (abjadValues[char]) {
+                    sum += abjadValues[char];
+                }
+            }
+            return sum;
+        }
+
+        function openSection(section) {
+            const sections = {
+                ebooks: {
+                    title: '📚 مكتبة الكتب الإلكترونية',
+                    content: `
+                        <div class="text-center mb-6">
+                            <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
+                                <strong>اشتراك مطلوب:</strong> 2000 دينار عراقي شهرياً
+                            </div>
+                            <button onclick="subscribe('ebooks', 2000)" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 mb-4">
+                                اشترك الآن
+                            </button>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold mb-2">📖 الأدب العربي</h4>
+                                <p class="text-sm text-gray-600">مجموعة من أفضل الكتب الأدبية</p>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold mb-2">🔬 العلوم</h4>
+                                <p class="text-sm text-gray-600">كتب علمية متنوعة ومفيدة</p>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold mb-2">💼 الأعمال</h4>
+                                <p class="text-sm text-gray-600">كتب في إدارة الأعمال والتطوير</p>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold mb-2">🎨 الفنون</h4>
+                                <p class="text-sm text-gray-600">كتب عن الفن والإبداع</p>
+                            </div>
+                        </div>
+                    `
+                },
+                tips: {
+                    title: '💡 النصائح الذهبية',
+                    content: `
+                        <div class="text-center mb-6">
+                            <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
+                                <strong>اشتراك مطلوب:</strong> 2000 دينار عراقي شهرياً
+                            </div>
+                            <button onclick="subscribe('tips', 2000)" class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 mb-4">
+                                اشترك الآن
+                            </button>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                                <h4 class="font-semibold text-green-800">💰 النصائح المالية</h4>
+                                <p class="text-green-700">كيفية إدارة الأموال بذكاء</p>
+                            </div>
+                            <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                                <h4 class="font-semibold text-blue-800">🏃 نصائح صحية</h4>
+                                <p class="text-blue-700">عادات يومية لحياة صحية أفضل</p>
+                            </div>
+                            <div class="bg-purple-50 border-l-4 border-purple-400 p-4">
+                                <h4 class="font-semibold text-purple-800">🧠 تطوير الذات</h4>
+                                <p class="text-purple-700">طرق تحسين الشخصية والمهارات</p>
+                            </div>
+                        </div>
+                    `
+                },
+                horoscope: {
+                    title: '🔮 معرفة الأبراج بحساب الجمل',
+                    content: `
+                        <div class="max-w-md mx-auto">
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">اسمك الكامل</label>
+                                    <input type="text" id="userName" class="w-full p-3 border rounded-lg" placeholder="أدخل اسمك...">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">اسم الأم</label>
+                                    <input type="text" id="motherName" class="w-full p-3 border rounded-lg" placeholder="أدخل اسم الأم...">
+                                </div>
+                                <button onclick="calculateHoroscope()" class="w-full bg-purple-500 text-white py-3 rounded-lg hover:bg-purple-600">
+                                    اكتشف برجك
+                                </button>
+                            </div>
+                            <div id="horoscopeResult" class="mt-6 text-center hidden">
+                                <div class="bg-purple-100 rounded-lg p-6">
+                                    <div class="text-4xl mb-4" id="horoscopeEmoji"></div>
+                                    <h3 class="text-xl font-bold mb-2" id="horoscopeName"></h3>
+                                    <p class="text-gray-600" id="horoscopeDescription"></p>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                religion: {
+                    title: '🕌 العلوم الدينية',
+                    content: `
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-green-50 rounded-lg p-6">
+                                <h4 class="text-xl font-semibold mb-4 text-green-800">📖 القرآن الكريم</h4>
+                                <p class="text-green-700 mb-4">تفسير وتدبر آيات القرآن الكريم</p>
+                                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                                    اقرأ المزيد
+                                </button>
+                            </div>
+                            <div class="bg-blue-50 rounded-lg p-6">
+                                <h4 class="text-xl font-semibold mb-4 text-blue-800">📚 الأحاديث النبوية</h4>
+                                <p class="text-blue-700 mb-4">أحاديث صحيحة مع الشرح</p>
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                                    اقرأ المزيد
+                                </button>
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-6">
+                                <h4 class="text-xl font-semibold mb-4 text-purple-800">🤲 الأدعية</h4>
+                                <p class="text-purple-700 mb-4">أدعية من القرآن والسنة</p>
+                                <button class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">
+                                    اقرأ المزيد
+                                </button>
+                            </div>
+                            <div class="bg-orange-50 rounded-lg p-6">
+                                <h4 class="text-xl font-semibold mb-4 text-orange-800">🕌 الفقه الإسلامي</h4>
+                                <p class="text-orange-700 mb-4">أحكام فقهية مبسطة</p>
+                                <button class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
+                                    اقرأ المزيد
+                                </button>
+                            </div>
+                        </div>
+                    `
+                },
+                consultation: {
+                    title: '🎯 الاستشارات المتخصصة',
+                    content: `
+                        <div class="text-center mb-6">
+                            <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
+                                <strong>تكلفة الاستشارة:</strong> 2000 دينار عراقي
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4 mb-6">
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold mb-2">💼 استشارات مهنية</h4>
+                                <p class="text-sm text-gray-600">تطوير المسار المهني</p>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold mb-2">💰 استشارات مالية</h4>
+                                <p class="text-sm text-gray-600">إدارة الأموال والاستثمار</p>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold mb-2">🎓 استشارات تعليمية</h4>
+                                <p class="text-sm text-gray-600">اختيار التخصص والدراسة</p>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold mb-2">🏠 استشارات أسرية</h4>
+                                <p class="text-sm text-gray-600">حل المشاكل الأسرية</p>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button onclick="bookConsultation()" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600">
+                                احجز استشارة الآن
+                            </button>
+                        </div>
+                    `
+                },
+                donations: {
+                    title: '❤️ التبرعات للأيتام والفقراء',
+                    content: `
+                        <div class="text-center mb-8">
+                            <div class="text-6xl mb-4">🤲</div>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-800">ساهم في عمل الخير</h3>
+                            <p class="text-gray-600 mb-6">كل تبرع يصل للمحتاجين مباشرة</p>
+                        </div>
+                        
+                        <div class="max-w-md mx-auto">
+                            <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
+                                <h4 class="font-semibold text-green-800 mb-4">💳 طرق الدفع المتاحة</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between bg-white p-3 rounded">
+                                        <span>💰 زين كاش</span>
+                                        <span class="font-mono text-sm">07814164745</span>
+                                    </div>
+                                    <div class="text-sm text-green-700">
+                                        * سيتم إضافة وسائل دفع أخرى قريباً
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">مبلغ التبرع (دينار عراقي)</label>
+                                    <input type="number" id="donationAmount" class="w-full p-3 border rounded-lg" placeholder="أدخل المبلغ...">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">اسمك (اختياري)</label>
+                                    <input type="text" id="donorName" class="w-full p-3 border rounded-lg" placeholder="اسمك الكريم...">
+                                </div>
+                                <button onclick="processDonation()" class="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600">
+                                    تبرع الآن
+                                </button>
+                            </div>
+                        </div>
+                    `
+                },
+                medical: {
+                    title: '🏥 التخدير والعناية المركزة',
+                    content: `
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-blue-50 rounded-lg p-6">
+                                <h4 class="text-xl font-semibold mb-4 text-blue-800">💉 أنواع التخدير</h4>
+                                <ul class="space-y-2 text-blue-700">
+                                    <li>• التخدير العام</li>
+                                    <li>• التخدير الموضعي</li>
+                                    <li>• التخدير النصفي</li>
+                                    <li>• التخدير الوريدي</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 rounded-lg p-6">
+                                <h4 class="text-xl font-semibold mb-4 text-green-800">🏥 العناية المركزة</h4>
+                                <ul class="space-y-2 text-green-700">
+                                    <li>• مراقبة العلامات الحيوية</li>
+                                    <li>• أجهزة التنفس الصناعي</li>
+                                    <li>• إدارة الألم</li>
+                                    <li>• الرعاية التمريضية المتخصصة</li>
+                                </ul>
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-6">
+                                <h4 class="text-xl font-semibold mb-4 text-purple-800">⚠️ احتياطات السلامة</h4>
+                                <ul class="space-y-2 text-purple-700">
+                                    <li>• فحص المريض قبل التخدير</li>
+                                    <li>• مراقبة مستمرة أثناء العملية</li>
+                                    <li>• إدارة المضاعفات</li>
+                                    <li>• الرعاية بعد التخدير</li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-50 rounded-lg p-6">
+                                <h4 class="text-xl font-semibold mb-4 text-red-800">🚨 حالات الطوارئ</h4>
+                                <ul class="space-y-2 text-red-700">
+                                    <li>• إنعاش القلب والرئتين</li>
+                                    <li>• إدارة الصدمة</li>
+                                    <li>• التعامل مع النزيف</li>
+                                    <li>• دعم الوظائف الحيوية</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                computer: {
+                    title: '💻 الحاسوب وتعلم البرامج',
+                    content: `
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-blue-50 rounded-lg p-4">
+                                <h4 class="font-semibold mb-3 text-blue-800">🖥️ أساسيات الحاسوب</h4>
+                                <ul class="text-sm space-y-1 text-blue-700">
+                                    <li>• مكونات الحاسوب</li>
+                                    <li>• أنظمة التشغيل</li>
+                                    <li>• إدارة الملفات</li>
+                                    <li>• الصيانة الأساسية</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 rounded-lg p-4">
+                                <h4 class="font-semibold mb-3 text-green-800">📊 برامج المكتب</h4>
+                                <ul class="text-sm space-y-1 text-green-700">
+                                    <li>• Microsoft Word</li>
+                                    <li>• Excel المتقدم</li>
+                                    <li>• PowerPoint</li>
+                                    <li>• Google Workspace</li>
+                                </ul>
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-4">
+                                <h4 class="font-semibold mb-3 text-purple-800">🎨 برامج التصميم</h4>
+                                <ul class="text-sm space-y-1 text-purple-700">
+                                    <li>• Photoshop</li>
+                                    <li>• Illustrator</li>
+                                    <li>• Canva</li>
+                                    <li>• GIMP المجاني</li>
+                                </ul>
+                            </div>
+                            <div class="bg-orange-50 rounded-lg p-4">
+                                <h4 class="font-semibold mb-3 text-orange-800">💻 البرمجة</h4>
+                                <ul class="text-sm space-y-1 text-orange-700">
+                                    <li>• HTML & CSS</li>
+                                    <li>• JavaScript</li>
+                                    <li>• Python للمبتدئين</li>
+                                    <li>• تطوير المواقع</li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-50 rounded-lg p-4">
+                                <h4 class="font-semibold mb-3 text-red-800">🔒 الأمان السيبراني</h4>
+                                <ul class="text-sm space-y-1 text-red-700">
+                                    <li>• حماية البيانات</li>
+                                    <li>• كلمات المرور القوية</li>
+                                    <li>• مكافحة الفيروسات</li>
+                                    <li>• التصفح الآمن</li>
+                                </ul>
+                            </div>
+                            <div class="bg-teal-50 rounded-lg p-4">
+                                <h4 class="font-semibold mb-3 text-teal-800">☁️ الحوسبة السحابية</h4>
+                                <ul class="text-sm space-y-1 text-teal-700">
+                                    <li>• Google Drive</li>
+                                    <li>• OneDrive</li>
+                                    <li>• Dropbox</li>
+                                    <li>• النسخ الاحتياطي</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                movies: {
+                    title: '🎬 الأفلام والمسلسلات',
+                    content: `
+                        <div class="text-center mb-6">
+                            <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
+                                <strong>اشتراك مطلوب:</strong> 1000 دينار عراقي شهرياً
+                            </div>
+                            <button onclick="subscribe('movies', 1000)" class="bg-pink-500 text-white px-6 py-2 rounded-lg hover:bg-pink-600 mb-4">
+                                اشترك الآن
+                            </button>
+                        </div>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gray-100 rounded-lg p-4">
+                                <div class="bg-gray-300 h-32 rounded mb-3 flex items-center justify-center">
+                                    <span class="text-4xl">🎭</span>
+                                </div>
+                                <h4 class="font-semibold mb-2">أفلام الدراما</h4>
+                                <p class="text-sm text-gray-600">أفضل الأفلام الدرامية العالمية</p>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg p-4">
+                                <div class="bg-gray-300 h-32 rounded mb-3 flex items-center justify-center">
+                                    <span class="text-4xl">⚡</span>
+                                </div>
+                                <h4 class="font-semibold mb-2">أفلام الأكشن</h4>
+                                <p class="text-sm text-gray-600">إثارة وتشويق لا ينتهي</p>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg p-4">
+                                <div class="bg-gray-300 h-32 rounded mb-3 flex items-center justify-center">
+                                    <span class="text-4xl">😂</span>
+                                </div>
+                                <h4 class="font-semibold mb-2">أفلام الكوميديا</h4>
+                                <p class="text-sm text-gray-600">ضحك وترفيه للعائلة</p>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg p-4">
+                                <div class="bg-gray-300 h-32 rounded mb-3 flex items-center justify-center">
+                                    <span class="text-4xl">👑</span>
+                                </div>
+                                <h4 class="font-semibold mb-2">المسلسلات التاريخية</h4>
+                                <p class="text-sm text-gray-600">قصص من التاريخ</p>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg p-4">
+                                <div class="bg-gray-300 h-32 rounded mb-3 flex items-center justify-center">
+                                    <span class="text-4xl">🔬</span>
+                                </div>
+                                <h4 class="font-semibold mb-2">الخيال العلمي</h4>
+                                <p class="text-sm text-gray-600">عوالم المستقبل والتكنولوجيا</p>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg p-4">
+                                <div class="bg-gray-300 h-32 rounded mb-3 flex items-center justify-center">
+                                    <span class="text-4xl">🕵️</span>
+                                </div>
+                                <h4 class="font-semibold mb-2">أفلام الجريمة</h4>
+                                <p class="text-sm text-gray-600">غموض وتحقيقات مثيرة</p>
+                            </div>
+                        </div>
+                    `
+                },
+                software: {
+                    title: '⚡ برامج الحاسوب المفعلة',
+                    content: `
+                        <div class="text-center mb-6">
+                            <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
+                                <strong>اشتراك مطلوب:</strong> 5000 دينار عراقي شهرياً
+                            </div>
+                            <button onclick="subscribe('software', 5000)" class="bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-600 mb-4">
+                                اشترك الآن
+                            </button>
+                        </div>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold mb-2">🎨 برامج التصميم</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Adobe Photoshop</li>
+                                    <li>• Adobe Illustrator</li>
+                                    <li>• CorelDRAW</li>
+                                    <li>• Sketch</li>
+                                </ul>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold mb-2">📊 برامج المكتب</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Microsoft Office</li>
+                                    <li>• Adobe Acrobat Pro</li>
+                                    <li>• WPS Office</li>
+                                    <li>• LibreOffice</li>
+                                </ul>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold mb-2">🎵 برامج الصوت</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Adobe Audition</li>
+                                    <li>• FL Studio</li>
+                                    <li>• Audacity Pro</li>
+                                    <li>• Cubase</li>
+                                </ul>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold mb-2">🎬 برامج الفيديو</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Adobe Premiere Pro</li>
+                                    <li>• After Effects</li>
+                                    <li>• Camtasia</li>
+                                    <li>• DaVinci Resolve</li>
+                                </ul>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold mb-2">💻 برامج البرمجة</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Visual Studio</li>
+                                    <li>• IntelliJ IDEA</li>
+                                    <li>• Sublime Text</li>
+                                    <li>• WebStorm</li>
+                                </ul>
+                            </div>
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold mb-2">🔒 برامج الحماية</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Kaspersky Total</li>
+                                    <li>• Norton 360</li>
+                                    <li>• Bitdefender</li>
+                                    <li>• Malwarebytes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                marriage: {
+                    title: '💕 النصائح الزوجية وأسرار العلاقة',
+                    content: `
+                        <div class="text-center mb-6">
+                            <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
+                                <strong>اشتراك مطلوب:</strong> 2000 دينار عراقي شهرياً
+                            </div>
+                            <button onclick="subscribe('marriage', 2000)" class="bg-rose-500 text-white px-6 py-2 rounded-lg hover:bg-rose-600 mb-4">
+                                اشترك الآن
+                            </button>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-pink-50 rounded-lg p-6">
+                                <h4 class="text-xl font-semibold mb-4 text-pink-800">💖 بناء الثقة</h4>
+                                <ul class="space-y-2 text-pink-700">
+                                    <li>• الصدق والشفافية</li>
+                                    <li>• الوفاء بالوعود</li>
+                                    <li>• الاحترام المتبادل</li>
+                                    <li>• التواصل الإيجابي</li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-50 rounded-lg p-6">
+                                <h4 class="text-xl font-semibold mb-4 text-red-800">💬 التواصل الفعال</h4>
+                                <ul class="space-y-2 text-red-700">
+                                    <li>• الاستماع الجيد</li>
+                                    <li>• التعبير عن المشاعر</li>
+                                    <li>• حل الخلافات بهدوء</li>
+                                    <li>• قضاء وقت جودة معاً</li>
+                                </ul>
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-6">
+                                <h4 class="text-xl font-semibold mb-4 text-purple-800">🏠 الحياة الأسرية</h4>
+                                <ul class="space-y-2 text-purple-700">
+                                    <li>• تقسيم المسؤوليات</li>
+                                    <li>• التخطيط للمستقبل</li>
+                                    <li>• تربية الأطفال</li>
+                                    <li>• إدارة الأموال</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50 rounded-lg p-6">
+                                <h4 class="text-xl font-semibold mb-4 text-blue-800">💝 الرومانسية</h4>
+                                <ul class="space-y-2 text-blue-700">
+                                    <li>• المفاجآت الصغيرة</li>
+                                    <li>• التقدير والامتنان</li>
+                                    <li>• الاهتمام بالمظهر</li>
+                                    <li>• خلق ذكريات جميلة</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                problems: {
+                    title: '🤝 الاستماع للمشاكل وتقديم الحلول',
+                    content: `
+                        <div class="text-center mb-6">
+                            <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
+                                <strong>اشتراك مطلوب:</strong> 5000 دينار عراقي شهرياً
+                            </div>
+                            <button onclick="subscribe('problems', 5000)" class="bg-violet-500 text-white px-6 py-2 rounded-lg hover:bg-violet-600 mb-4">
+                                اشترك الآن
+                            </button>
+                        </div>
+                        <div class="max-w-2xl mx-auto">
+                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+                                <h4 class="font-semibold text-blue-800 mb-4">🔒 ضمان السرية التامة</h4>
+                                <p class="text-blue-700">جميع المحادثات والمشاكل المطروحة تبقى سرية تماماً ولا يتم مشاركتها مع أي طرف آخر.</p>
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div class="bg-white border rounded-lg p-6">
+                                    <h4 class="font-semibold mb-4">📝 اكتب مشكلتك</h4>
+                                    <textarea class="w-full p-4 border rounded-lg h-32" placeholder="اكتب مشكلتك بالتفصيل... سيتم التعامل معها بسرية تامة"></textarea>
+                                    <button class="mt-4 bg-violet-500 text-white px-6 py-2 rounded-lg hover:bg-violet-600">
+                                        إرسال المشكلة
+                                    </button>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-green-50 rounded-lg p-4">
+                                        <h5 class="font-semibold text-green-800 mb-2">💼 مشاكل العمل</h5>
+                                        <p class="text-sm text-green-700">صعوبات في بيئة العمل والعلاقات المهنية</p>
+                                    </div>
+                                    <div class="bg-blue-50 rounded-lg p-4">
+                                        <h5 class="font-semibold text-blue-800 mb-2">👨‍👩‍👧‍👦 مشاكل أسرية</h5>
+                                        <p class="text-sm text-blue-700">خلافات عائلية وصعوبات في التواصل</p>
+                                    </div>
+                                    <div class="bg-purple-50 rounded-lg p-4">
+                                        <h5 class="font-semibold text-purple-800 mb-2">💔 مشاكل عاطفية</h5>
+                                        <p class="text-sm text-purple-700">صعوبات في العلاقات العاطفية</p>
+                                    </div>
+                                    <div class="bg-orange-50 rounded-lg p-4">
+                                        <h5 class="font-semibold text-orange-800 mb-2">💰 مشاكل مالية</h5>
+                                        <p class="text-sm text-orange-700">صعوبات في إدارة الأموال والديون</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                predictions: {
+                    title: '✨ توقعات الأبراج اليومية والأسبوعية',
+                    content: `
+                        <div class="text-center mb-6">
+                            <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
+                                <strong>اشتراك مطلوب:</strong> 2000 دينار عراقي شهرياً
+                            </div>
+                            <button onclick="subscribe('predictions', 2000)" class="bg-amber-500 text-white px-6 py-2 rounded-lg hover:bg-amber-600 mb-4">
+                                اشترك الآن
+                            </button>
+                        </div>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-red-800 mb-3">♈ الحمل</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-red-700"><strong>اليوم:</strong> يوم مليء بالطاقة الإيجابية</p>
+                                    <p class="text-red-600"><strong>الأسبوع:</strong> فرص جديدة في العمل</p>
+                                    <p class="text-red-500"><strong>الحب:</strong> تطورات إيجابية</p>
+                                </div>
+                            </div>
+                            <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-green-800 mb-3">♉ الثور</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-green-700"><strong>اليوم:</strong> استقرار مالي جيد</p>
+                                    <p class="text-green-600"><strong>الأسبوع:</strong> تحسن في الصحة</p>
+                                    <p class="text-green-500"><strong>الحب:</strong> هدوء وراحة</p>
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-blue-800 mb-3">♊ الجوزاء</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-blue-700"><strong>اليوم:</strong> تواصل اجتماعي نشط</p>
+                                    <p class="text-blue-600"><strong>الأسبوع:</strong> أخبار سارة</p>
+                                    <p class="text-blue-500"><strong>الحب:</strong> لقاءات مثيرة</p>
+                                </div>
+                            </div>
+                            <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-purple-800 mb-3">♋ السرطان</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-purple-700"><strong>اليوم:</strong> تركيز على الأسرة</p>
+                                    <p class="text-purple-600"><strong>الأسبوع:</strong> حلول للمشاكل</p>
+                                    <p class="text-purple-500"><strong>الحب:</strong> عمق في المشاعر</p>
+                                </div>
+                            </div>
+                            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-yellow-800 mb-3">♌ الأسد</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-yellow-700"><strong>اليوم:</strong> إبداع وتألق</p>
+                                    <p class="text-yellow-600"><strong>الأسبوع:</strong> نجاح في المشاريع</p>
+                                    <p class="text-yellow-500"><strong>الحب:</strong> شغف وحماس</p>
+                                </div>
+                            </div>
+                            <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-indigo-800 mb-3">♍ العذراء</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-indigo-700"><strong>اليوم:</strong> تنظيم وترتيب</p>
+                                    <p class="text-indigo-600"><strong>الأسبوع:</strong> تحسن في العمل</p>
+                                    <p class="text-indigo-500"><strong>الحب:</strong> استقرار عاطفي</p>
+                                </div>
+                            </div>
+                            <div class="bg-pink-50 border border-pink-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-pink-800 mb-3">♎ الميزان</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-pink-700"><strong>اليوم:</strong> توازن وانسجام</p>
+                                    <p class="text-pink-600"><strong>الأسبوع:</strong> قرارات مهمة</p>
+                                    <p class="text-pink-500"><strong>الحب:</strong> رومانسية عالية</p>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-gray-800 mb-3">♏ العقرب</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-gray-700"><strong>اليوم:</strong> كشف أسرار جديدة</p>
+                                    <p class="text-gray-600"><strong>الأسبوع:</strong> تحولات إيجابية</p>
+                                    <p class="text-gray-500"><strong>الحب:</strong> عمق وصدق</p>
+                                </div>
+                            </div>
+                            <div class="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-orange-800 mb-3">♐ القوس</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-orange-700"><strong>اليوم:</strong> مغامرات جديدة</p>
+                                    <p class="text-orange-600"><strong>الأسبوع:</strong> سفر أو تنقل</p>
+                                    <p class="text-orange-500"><strong>الحب:</strong> حرية وانطلاق</p>
+                                </div>
+                            </div>
+                            <div class="bg-teal-50 border border-teal-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-teal-800 mb-3">♑ الجدي</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-teal-700"><strong>اليوم:</strong> إنجازات مهنية</p>
+                                    <p class="text-teal-600"><strong>الأسبوع:</strong> تقدم في الأهداف</p>
+                                    <p class="text-teal-500"><strong>الحب:</strong> جدية والتزام</p>
+                                </div>
+                            </div>
+                            <div class="bg-cyan-50 border border-cyan-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-cyan-800 mb-3">♒ الدلو</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-cyan-700"><strong>اليوم:</strong> أفكار إبداعية</p>
+                                    <p class="text-cyan-600"><strong>الأسبوع:</strong> تجديد وتطوير</p>
+                                    <p class="text-cyan-500"><strong>الحب:</strong> صداقة وتفاهم</p>
+                                </div>
+                            </div>
+                            <div class="bg-violet-50 border border-violet-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-violet-800 mb-3">♓ الحوت</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-violet-700"><strong>اليوم:</strong> حدس قوي وإلهام</p>
+                                    <p class="text-violet-600"><strong>الأسبوع:</strong> روحانية عالية</p>
+                                    <p class="text-violet-500"><strong>الحب:</strong> مشاعر عميقة</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <p class="text-sm text-gray-600">* يتم تحديث التوقعات يومياً للمشتركين</p>
+                        </div>
+                    `
+                }
+            };
+
+            document.getElementById('modalTitle').textContent = sections[section].title;
+            document.getElementById('modalContent').innerHTML = sections[section].content;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function calculateHoroscope() {
+            const userName = document.getElementById('userName').value.trim();
+            const motherName = document.getElementById('motherName').value.trim();
+            
+            if (!userName || !motherName) {
+                alert('يرجى إدخال الاسم واسم الأم');
+                return;
+            }
+
+            // حساب قيمة الاسم
+            const userNameValue = calculateAbjad(userName);
+            // حساب قيمة اسم الأم
+            const motherNameValue = calculateAbjad(motherName);
+            // جمع القيمتين
+            const totalSum = userNameValue + motherNameValue;
+            // القسمة على 12 والحصول على الباقي
+            const remainder = totalSum % 12;
+            // إذا كان الباقي 0، فالبرج هو الحوت (البرج رقم 12)
+            const horoscopeIndex = remainder === 0 ? 11 : remainder - 1;
+            const horoscope = horoscopes[horoscopeIndex];
+
+            const horoscopeDescriptions = [
+                'شخصية قيادية وطموحة، تحب التحدي والمغامرة',
+                'شخصية صبورة ومثابرة، تقدر الاستقرار والجمال',
+                'شخصية ذكية ومتواصلة، تحب التعلم والتنوع',
+                'شخصية حساسة ومهتمة، تقدر الأسرة والأمان',
+                'شخصية واثقة وكريمة، تحب الإبداع والتميز',
+                'شخصية منظمة ودقيقة، تسعى للكمال والتفاصيل',
+                'شخصية متوازنة ودبلوماسية، تحب العدالة والجمال',
+                'شخصية قوية وغامضة، تتمتع بالعمق والشغف',
+                'شخصية متفائلة ومغامرة، تحب السفر والحرية',
+                'شخصية عملية وطموحة، تسعى للنجاح والإنجاز',
+                'شخصية مبدعة ومستقلة، تحب التجديد والتطوير',
+                'شخصية حالمة وحساسة، تتمتع بالخيال والإبداع'
+            ];
+
+            document.getElementById('horoscopeName').textContent = horoscope;
+            document.getElementById('horoscopeDescription').textContent = horoscopeDescriptions[horoscopeIndex];
+            document.getElementById('horoscopeResult').classList.remove('hidden');
+        }
+
+        function subscribe(service, amount) {
+            if (confirm(`هل تريد الاشتراك في هذه الخدمة بمبلغ ${amount} دينار عراقي شهرياً؟`)) {
+                alert('سيتم توجيهك لصفحة الدفع قريباً. هذه نسخة تجريبية من الموقع.');
+            }
+        }
+
+        function bookConsultation() {
+            if (confirm('هل تريد حجز استشارة بمبلغ 2000 دينار عراقي؟')) {
+                alert('سيتم التواصل معك قريباً لتحديد موعد الاستشارة.');
+            }
+        }
+
+        function processDonation() {
+            const amount = document.getElementById('donationAmount').value;
+            const name = document.getElementById('donorName').value;
+            
+            if (!amount || amount <= 0) {
+                alert('يرجى إدخال مبلغ صحيح');
+                return;
+            }
+            
+            alert(`شكراً لك ${name || 'المتبرع الكريم'} على تبرعك بمبلغ ${amount} دينار عراقي. سيتم التواصل معك لإتمام عملية التبرع عبر زين كاش: 07814164745`);
+        }
+
+        function showLogin() {
+            document.getElementById('modalTitle').textContent = '🔐 تسجيل الدخول';
+            document.getElementById('modalContent').innerHTML = `
+                <div class="max-w-md mx-auto">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">البريد الإلكتروني أو رقم الهاتف</label>
+                            <input type="text" class="w-full p-3 border rounded-lg" placeholder="أدخل بريدك الإلكتروني...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">كلمة المرور</label>
+                            <input type="password" class="w-full p-3 border rounded-lg" placeholder="أدخل كلمة المرور...">
+                        </div>
+                        <button class="w-full bg-purple-500 text-white py-3 rounded-lg hover:bg-purple-600">
+                            تسجيل الدخول
+                        </button>
+                        <div class="text-center">
+                            <a href="#" class="text-purple-500 hover:underline">نسيت كلمة المرور؟</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function showRegister() {
+            document.getElementById('modalTitle').textContent = '📝 إنشاء حساب جديد';
+            document.getElementById('modalContent').innerHTML = `
+                <div class="max-w-md mx-auto">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">الاسم الكامل</label>
+                            <input type="text" class="w-full p-3 border rounded-lg" placeholder="أدخل اسمك الكامل...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">البريد الإلكتروني</label>
+                            <input type="email" class="w-full p-3 border rounded-lg" placeholder="أدخل بريدك الإلكتروني...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">رقم الهاتف</label>
+                            <input type="tel" class="w-full p-3 border rounded-lg" placeholder="أدخل رقم هاتفك...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">كلمة المرور</label>
+                            <input type="password" class="w-full p-3 border rounded-lg" placeholder="أدخل كلمة مرور قوية...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">تأكيد كلمة المرور</label>
+                            <input type="password" class="w-full p-3 border rounded-lg" placeholder="أعد إدخال كلمة المرور...">
+                        </div>
+                        <button class="w-full bg-purple-500 text-white py-3 rounded-lg hover:bg-purple-600">
+                            إنشاء الحساب
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9882920832872e45',t:'MTc1OTM5MTAyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
