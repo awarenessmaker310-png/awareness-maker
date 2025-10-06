@@ -1,24 +1,0 @@
-import Link from 'next/link';
-
-export default function Home() {
-  return (
-    <div className="min-h-screen p-6 bg-gray-100" dir="rtl">
-      <h1 className="text-4xl font-bold mb-8 text-center">مدونة صانع وعي</h1>
-
-      <ul className="space-y-3 max-w-md mx-auto">
-        <li><Link href="/ebooks"><a className="text-blue-600 hover:underline">📚 الكتب الإلكترونية</a></Link></li>
-        <li><Link href="/tips"><a className="text-blue-600 hover:underline">💡 النصائح</a></Link></li>
-        <li><Link href="/horoscope"><a className="text-blue-600 hover:underline">🔮 معرفة الأبراج</a></Link></li>
-        <li><Link href="/religion"><a className="text-blue-600 hover:underline">📖 العلوم الدينية</a></Link></li>
-        <li><Link href="/consultations"><a className="text-blue-600 hover:underline">💬 الاستشارات</a></Link></li>
-        <li><Link href="/donation"><a className="text-blue-600 hover:underline">🤝 التبرع للأيتام والفقراء</a></Link></li>
-        <li><Link href="/icu"><a className="text-blue-600 hover:underline">🏥 التخدير والعناية المركزة</a></Link></li>
-        <li><Link href="/computers"><a className="text-blue-600 hover:underline">💻 الحواسيب والبرامج</a></Link></li>
-        <li><Link href="/movies"><a className="text-blue-600 hover:underline">🎬 الأفلام والمسلسلات</a></Link></li>
-        <li><Link href="/software"><a className="text-blue-600 hover:underline">🛠️ برامج الحاسوب للتحميل</a></Link></li>
-        <li><Link href="/couple"><a className="text-blue-600 hover:underline">💑 النصائح الزوجية</a></Link></li>
-        <li><Link href="/confidential"><a className="text-blue-600 hover:underline">🔒 المشاكل الشخصية</a></Link></li>
-      </ul>
-    </div>
-  );
-}
