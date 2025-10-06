@@ -1,1739 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة المعرفة الشاملة</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            box-sizing: border-box;
-        }
-        
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
-        
-        * {
-            font-family: 'Cairo', sans-serif;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        .service-card {
-            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-            border: 1px solid #e2e8f0;
-        }
-        
-        .premium-badge {
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-        
-        .floating {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .modal {
-            backdrop-filter: blur(10px);
-        }
-        
-        .zodiac-result {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 20px;
-            text-align: center;
-        }
-        
-        .price-tag {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-        
-        .free-tag {
-            background: linear-gradient(45deg, #00d2d3, #54a0ff);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-    </style>
-</head>
-<body class="bg-gray-50">
-    <!-- Header -->
-    <header class="gradient-bg text-white shadow-lg">
-        <div class="container mx-auto px-4 py-6">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center justify-between w-full">
-                    <div class="text-lg font-bold text-white">Awareness Maker</div>
-                    <div class="flex items-center space-x-4 space-x-reverse">
-                        <div class="text-3xl">📚</div>
-                        <div>
-                            <h1 class="text-2xl font-bold">صانع وعي</h1>
-                            <p class="text-sm opacity-90">بوابتك للعلم والثقافة والتطوير</p>
-                        </div>
-                    </div>
-                </div>
-                <nav class="hidden md:flex space-x-6 space-x-reverse">
-                    <a href="#services" class="hover:text-yellow-300 transition-colors">الخدمات</a>
-                    <a href="#pricing" class="hover:text-yellow-300 transition-colors">الاشتراكات</a>
-                    <a href="#contact" class="hover:text-yellow-300 transition-colors">تواصل معنا</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="gradient-bg text-white py-20">
-        <div class="container mx-auto px-4 text-center">
-            <div class="floating">
-                <h2 class="text-5xl font-bold mb-6">صانع وعي - منصة شاملة للمعرفة والتطوير</h2>
-                <p class="text-xl mb-8 max-w-3xl mx-auto">كتب إلكترونية، نصائح، علوم دينية، استشارات، أفلام، برامج، وأكثر من ذلك بكثير</p>
-                <button onclick="scrollToServices()" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-colors shadow-lg">
-                    🚀 استكشف خدماتنا
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">خدماتنا المتنوعة</h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <!-- 1. الكتب الإلكترونية -->
-                <div class="service-card rounded-xl p-6 card-hover">
-                    <div class="text-4xl mb-4">📚</div>
-                    <h3 class="text-lg font-bold mb-2 text-gray-800">الكتب الإلكترونية</h3>
-                    <div class="price-tag mb-3">2000 دينار/شهر</div>
-                    <p class="text-gray-600 text-sm mb-4">مكتبة ضخمة للقراءة فقط</p>
-                    <button onclick="subscribe('books', 2000)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                        اشترك الآن
-                    </button>
-                </div>
-
-                <!-- 2. النصائح -->
-                <div class="service-card rounded-xl p-6 card-hover">
-                    <div class="text-4xl mb-4">💡</div>
-                    <h3 class="text-lg font-bold mb-2 text-gray-800">النصائح</h3>
-                    <div class="price-tag mb-3">2000 دينار/شهر</div>
-                    <p class="text-gray-600 text-sm mb-4">نصائح عبر التواصل المباشر</p>
-                    <button onclick="subscribe('tips', 2000)" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors">
-                        اشترك الآن
-                    </button>
-                </div>
-
-                <!-- 3. معرفة الأبراج -->
-                <div class="service-card rounded-xl p-6 card-hover">
-                    <div class="text-4xl mb-4">🔮</div>
-                    <h3 class="text-lg font-bold mb-2 text-gray-800">معرفة الأبراج</h3>
-                    <div class="free-tag mb-3">مجاني</div>
-                    <p class="text-gray-600 text-sm mb-4">احسب برجك بحساب الجمل</p>
-                    <button onclick="openModal('zodiac')" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors">
-                        احسب برجك
-                    </button>
-                </div>
-
-                <!-- 4. العلوم الدينية -->
-                <div class="service-card rounded-xl p-6 card-hover">
-                    <div class="text-4xl mb-4">🕌</div>
-                    <h3 class="text-lg font-bold mb-2 text-gray-800">العلوم الدينية</h3>
-                    <div class="free-tag mb-3">مجاني</div>
-                    <p class="text-gray-600 text-sm mb-4">فقه وعقائد ومعلومات دينية</p>
-                    <button onclick="openModal('religion')" class="w-full bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 transition-colors">
-                        تصفح المحتوى
-                    </button>
-                </div>
-
-                <!-- 5. الاستشارات -->
-                <div class="service-card rounded-xl p-6 card-hover">
-                    <div class="text-4xl mb-4">🤝</div>
-                    <h3 class="text-lg font-bold mb-2 text-gray-800">الاستشارات</h3>
-                    <div class="price-tag mb-3">2000 دينار/استشارة</div>
-                    <p class="text-gray-600 text-sm mb-4">استشارات متخصصة</p>
-                    <button onclick="subscribe('consultation', 2000)" class="w-full bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition-colors">
-                        اشترك الآن
-                    </button>
-                </div>
-
-                <!-- 6. التبرعات -->
-                <div class="service-card rounded-xl p-6 card-hover">
-                    <div class="text-4xl mb-4">❤️</div>
-                    <h3 class="text-lg font-bold mb-2 text-gray-800">التبرع للأيتام</h3>
-                    <div class="free-tag mb-3">عمل خيري</div>
-                    <p class="text-gray-600 text-sm mb-4">ساهم في مساعدة الأيتام</p>
-                    <button onclick="openModal('donation')" class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition-colors">
-                        تبرع الآن
-                    </button>
-                </div>
-
-                <!-- 7. التخدير والعناية -->
-                <div class="service-card rounded-xl p-6 card-hover">
-                    <div class="text-4xl mb-4">🏥</div>
-                    <h3 class="text-lg font-bold mb-2 text-gray-800">التخدير والعناية</h3>
-                    <div class="free-tag mb-3">مجاني</div>
-                    <p class="text-gray-600 text-sm mb-4">معلومات طبية متخصصة</p>
-                    <button onclick="openModal('medical')" class="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition-colors">
-                        تصفح المعلومات
-                    </button>
-                </div>
-
-                <!-- 8. الحاسوب والبرامج -->
-                <div class="service-card rounded-xl p-6 card-hover">
-                    <div class="text-4xl mb-4">💻</div>
-                    <h3 class="text-lg font-bold mb-2 text-gray-800">تعلم الحاسوب</h3>
-                    <div class="free-tag mb-3">مجاني</div>
-                    <p class="text-gray-600 text-sm mb-4">دروس ومعلومات الحاسوب</p>
-                    <button onclick="openModal('computer')" class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition-colors">
-                        ابدأ التعلم
-                    </button>
-                </div>
-
-                <!-- 9. الأفلام والمسلسلات -->
-                <div class="service-card rounded-xl p-6 card-hover">
-                    <div class="text-4xl mb-4">🎬</div>
-                    <h3 class="text-lg font-bold mb-2 text-gray-800">أفلام ومسلسلات</h3>
-                    <div class="price-tag mb-3">1000 دينار/شهر</div>
-                    <p class="text-gray-600 text-sm mb-4">أفلام ومسلسلات أجنبية</p>
-                    <button onclick="subscribe('movies', 1000)" class="w-full bg-pink-600 text-white py-2 rounded-lg hover:bg-pink-700 transition-colors">
-                        اشترك الآن
-                    </button>
-                </div>
-
-                <!-- 10. برامج الحاسوب -->
-                <div class="service-card rounded-xl p-6 card-hover">
-                    <div class="text-4xl mb-4">⚙️</div>
-                    <h3 class="text-lg font-bold mb-2 text-gray-800">برامج الحاسوب</h3>
-                    <div class="price-tag mb-3">5000 دينار/شهر</div>
-                    <p class="text-gray-600 text-sm mb-4">برامج مفعلة للتحميل</p>
-                    <button onclick="subscribe('software', 5000)" class="w-full bg-gray-600 text-white py-2 rounded-lg hover:bg-gray-700 transition-colors">
-                        اشترك الآن
-                    </button>
-                </div>
-
-                <!-- 11. النصائح الزوجية -->
-                <div class="service-card rounded-xl p-6 card-hover">
-                    <div class="text-4xl mb-4">💕</div>
-                    <h3 class="text-lg font-bold mb-2 text-gray-800">النصائح الزوجية</h3>
-                    <div class="price-tag mb-3">2000 دينار/شهر</div>
-                    <p class="text-gray-600 text-sm mb-4">أسرار العلاقات الزوجية</p>
-                    <button onclick="subscribe('marriage', 2000)" class="w-full bg-rose-600 text-white py-2 rounded-lg hover:bg-rose-700 transition-colors">
-                        اشترك الآن
-                    </button>
-                </div>
-
-                <!-- 12. المشاكل الشخصية -->
-                <div class="service-card rounded-xl p-6 card-hover">
-                    <div class="text-4xl mb-4">🤐</div>
-                    <h3 class="text-lg font-bold mb-2 text-gray-800">المشاكل الشخصية</h3>
-                    <div class="price-tag mb-3">5000 دينار/شهر</div>
-                    <p class="text-gray-600 text-sm mb-4">حلول سرية للمشاكل</p>
-                    <button onclick="subscribe('problems', 5000)" class="w-full bg-slate-600 text-white py-2 rounded-lg hover:bg-slate-700 transition-colors">
-                        اشترك الآن
-                    </button>
-                </div>
-
-                <!-- 13. توقعات الأبراج -->
-                <div class="service-card rounded-xl p-6 card-hover">
-                    <div class="text-4xl mb-4">🔮</div>
-                    <h3 class="text-lg font-bold mb-2 text-gray-800">توقعات الأبراج</h3>
-                    <div class="price-tag mb-3">2000 دينار/شهر</div>
-                    <p class="text-gray-600 text-sm mb-4">توقعات يومية وشهرية</p>
-                    <button onclick="subscribe('horoscope', 2000)" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors">
-                        اشترك الآن
-                    </button>
-                </div>
-
-                <!-- 14. قراءة الطالع الفلكي -->
-                <div class="service-card rounded-xl p-6 card-hover">
-                    <div class="text-4xl mb-4">🌟</div>
-                    <h3 class="text-lg font-bold mb-2 text-gray-800">قراءة الطالع الفلكي</h3>
-                    <div class="price-tag mb-3">10000 دينار/شهر</div>
-                    <p class="text-gray-600 text-sm mb-4">خارطة فلكية بالذكاء الاصطناعي</p>
-                    <button onclick="subscribe('astrology', 10000)" class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition-colors">
-                        اشترك الآن
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Summary -->
-    <section id="pricing" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">ملخص الأسعار</h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-white rounded-xl p-6 shadow-lg">
-                    <h3 class="text-xl font-bold mb-4 text-green-600">الخدمات المجانية</h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li>• معرفة الأبراج</li>
-                        <li>• العلوم الدينية</li>
-                        <li>• التخدير والعناية المركزة</li>
-                        <li>• تعلم الحاسوب</li>
-                        <li>• التبرعات الخيرية</li>
-                    </ul>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-lg">
-                    <h3 class="text-xl font-bold mb-4 text-blue-600">الاشتراكات الشهرية</h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li>• الكتب الإلكترونية: 2000 دينار</li>
-                        <li>• النصائح: 2000 دينار</li>
-                        <li>• توقعات الأبراج: 2000 دينار</li>
-                        <li>• الأفلام والمسلسلات: 1000 دينار</li>
-                        <li>• النصائح الزوجية: 2000 دينار</li>
-                        <li>• برامج الحاسوب: 5000 دينار</li>
-                        <li>• المشاكل الشخصية: 5000 دينار</li>
-                        <li>• قراءة الطالع الفلكي: 10000 دينار</li>
-                    </ul>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-lg">
-                    <h3 class="text-xl font-bold mb-4 text-orange-600">الخدمات الفردية</h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li>• الاستشارات: 2000 دينار/استشارة</li>
-                        <li>• قراءة الطالع الفلكي: 10000 دينار/شهر</li>
-                        <li>• جلسات حل المشاكل</li>
-                        <li>• استشارات زوجية</li>
-                        <li>• استشارات طبية</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">تواصل معنا</h2>
-            
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-bold mb-6 text-gray-800">معلومات التواصل</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <span class="text-2xl ml-4">📱</span>
-                            <span>07814164745</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="text-2xl ml-4">📧</span>
-                            <span>awarenessmaker310@gmail.com</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="text-2xl ml-4">📍</span>
-                            <span>العراق - كربلاء</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <form onsubmit="sendMessage(event)" class="space-y-4">
-                        <input type="text" placeholder="الاسم" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        <input type="email" placeholder="البريد الإلكتروني" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        <textarea placeholder="الرسالة" rows="4" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
-                        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
-                            إرسال الرسالة
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-4 text-center">
-            <div class="mb-8">
-                <h3 class="text-2xl font-bold mb-4">صانع وعي</h3>
-                <p class="text-gray-400">بوابتك للعلم والثقافة والتطوير الشخصي</p>
-            </div>
-            <div class="border-t border-gray-700 pt-8">
-                <p>&copy; 2025 صانع وعي. جميع الحقوق محفوظة.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Modals -->
-    
-    <!-- Books Modal -->
-    <div id="booksModal" class="fixed inset-0 bg-black bg-opacity-50 modal hidden items-center justify-center z-50">
-        <div class="bg-white rounded-xl p-8 max-w-4xl w-full mx-4 max-h-96 overflow-y-auto">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold text-gray-800">📚 الكتب الإلكترونية</h2>
-                <button onclick="closeModal('books')" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-            </div>
-            <div class="mb-4 p-4 bg-blue-50 rounded-lg">
-                <p class="text-blue-800 font-semibold">اشتراك شهري: 2000 دينار عراقي</p>
-                <p class="text-blue-600 text-sm mt-2">📱 للدفع: زين كاش 07814164745</p>
-            </div>
-            <div class="border rounded-lg p-6 text-center">
-                <h3 class="font-bold mb-4 text-xl">مكتبة الكتب الإلكترونية</h3>
-                <p class="text-gray-600 mb-4">مجموعة ضخمة من الكتب للقراءة فقط (غير قابلة للتحميل)</p>
-                <div class="mb-4 p-3 bg-yellow-50 rounded border-l-4 border-yellow-400">
-                    <p class="text-yellow-800 text-sm">🔒 الرابط محمي ومتاح فقط للمشتركين</p>
-                </div>
-                <input type="url" id="booksLink" placeholder="رابط مجلد الكتب في Google Drive (للإدارة فقط)" class="w-full p-3 border rounded mb-4" disabled>
-                <button id="accessBooksBtn" onclick="accessBooks()" class="bg-gray-400 text-white px-6 py-3 rounded-lg cursor-not-allowed" disabled>
-                    🔒 يتطلب اشتراك نشط
-                </button>
-            </div>
-            <div class="mt-6 text-center">
-                <button onclick="subscribe('books', 2000)" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors">
-                    💳 اشترك الآن - 2000 دينار/شهر
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Zodiac Modal -->
-    <div id="zodiacModal" class="fixed inset-0 bg-black bg-opacity-50 modal hidden items-center justify-center z-50">
-        <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold text-gray-800">🔮 معرفة الأبراج</h2>
-                <button onclick="closeModal('zodiac')" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-            </div>
-            <div class="mb-4 p-4 bg-green-50 rounded-lg">
-                <p class="text-green-800 font-semibold">خدمة مجانية</p>
-            </div>
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">اسمك الكامل:</label>
-                    <input type="text" id="fullName" placeholder="مثال: أحمد محمد علي" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">اسم الأم:</label>
-                    <input type="text" id="motherName" placeholder="مثال: فاطمة حسن" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
-                </div>
-                <button onclick="calculateZodiac()" class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors">
-                    🔮 احسب برجي
-                </button>
-                <div id="zodiacResult"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Donation Modal -->
-    <div id="donationModal" class="fixed inset-0 bg-black bg-opacity-50 modal hidden items-center justify-center z-50">
-        <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold text-gray-800">❤️ التبرع للأيتام والفقراء</h2>
-                <button onclick="closeModal('donation')" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-            </div>
-            <div class="space-y-4">
-                <div class="p-4 bg-red-50 rounded-lg">
-                    <h3 class="font-bold text-red-800 mb-2">طرق الدفع المتاحة:</h3>
-                    <p class="text-red-700">💳 زين كاش: 07814164745</p>
-                </div>
-                <form onsubmit="submitDonation(event)" class="space-y-4">
-                    <input type="text" name="donorName" placeholder="اسم المتبرع (اختياري)" class="w-full p-3 border rounded-lg">
-                    <input type="tel" name="phone" placeholder="رقم الهاتف (واتساب + زين كاش)" class="w-full p-3 border rounded-lg" required>
-                    <input type="number" name="amount" placeholder="مبلغ التبرع بالدينار العراقي" class="w-full p-3 border rounded-lg" required>
-                    <div class="p-3 bg-gray-50 rounded border">
-                        <p class="text-sm text-gray-600 mb-2">📧 سيتم إرسال تفاصيل التبرع إلى:</p>
-                        <p class="font-mono text-sm bg-white p-2 rounded border">awarenessmaker310@gmail.com</p>
-                    </div>
-                    <button type="submit" class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors">
-                        💝 تأكيد التبرع
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Horoscope Modal -->
-    <div id="horoscopeModal" class="fixed inset-0 bg-black bg-opacity-50 modal hidden items-center justify-center z-50">
-        <div class="bg-white rounded-xl p-8 max-w-2xl w-full mx-4 max-h-96 overflow-y-auto">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold text-gray-800">🔮 توقعات الأبراج</h2>
-                <button onclick="closeModal('horoscope')" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-            </div>
-            <div class="mb-4 p-4 bg-purple-50 rounded-lg">
-                <p class="text-purple-800 font-semibold">اشتراك شهري: 2000 دينار عراقي</p>
-                <p class="text-purple-600 text-sm mt-2">📱 للدفع: زين كاش 07814164745</p>
-            </div>
-            <div class="space-y-4">
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="border rounded-lg p-4">
-                        <h3 class="font-bold mb-2 text-purple-700">🌅 التوقعات اليومية</h3>
-                        <p class="text-sm text-gray-600 mb-3">توقعات يومية مفصلة لكل برج</p>
-                        <div class="mb-3 p-3 bg-yellow-50 rounded border-l-4 border-yellow-400">
-                            <p class="text-yellow-800 text-sm">🔒 متاح للمشتركين فقط</p>
-                        </div>
-                        <button id="dailyHoroscopeBtn" onclick="accessDailyHoroscope()" class="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed w-full" disabled>
-                            🔒 يتطلب اشتراك نشط
-                        </button>
-                    </div>
-                    <div class="border rounded-lg p-4">
-                        <h3 class="font-bold mb-2 text-purple-700">📅 التوقعات الشهرية</h3>
-                        <p class="text-sm text-gray-600 mb-3">توقعات شهرية شاملة</p>
-                        <div class="mb-3 p-3 bg-yellow-50 rounded border-l-4 border-yellow-400">
-                            <p class="text-yellow-800 text-sm">🔒 متاح للمشتركين فقط</p>
-                        </div>
-                        <button id="monthlyHoroscopeBtn" onclick="accessMonthlyHoroscope()" class="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed w-full" disabled>
-                            🔒 يتطلب اشتراك نشط
-                        </button>
-                    </div>
-                </div>
-                <div class="border rounded-lg p-4 bg-gradient-to-r from-purple-50 to-pink-50">
-                    <h3 class="font-bold mb-2 text-purple-700">✨ ما ستحصل عليه:</h3>
-                    <ul class="text-sm space-y-1 text-gray-700">
-                        <li>• توقعات يومية مخصصة لبرجك</li>
-                        <li>• نصائح للحب والعمل والصحة</li>
-                        <li>• تحديثات شهرية مفصلة</li>
-                        <li>• إرشادات للأيام المناسبة للقرارات المهمة</li>
-                        <li>• تحليل شخصية متقدم</li>
-                    </ul>
-                </div>
-                <div class="text-center">
-                    <button onclick="subscribe('horoscope', 2000)" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">
-                        💳 اشترك الآن - 2000 دينار/شهر
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Astrology Modal -->
-    <div id="astrologyModal" class="fixed inset-0 bg-black bg-opacity-50 modal hidden items-center justify-center z-50">
-        <div class="bg-white rounded-xl p-8 max-w-4xl w-full mx-4 max-h-96 overflow-y-auto">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold text-gray-800">🌟 قراءة الطالع الفلكي بالذكاء الاصطناعي</h2>
-                <button onclick="closeModal('astrology')" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-            </div>
-            <div class="mb-4 p-4 bg-indigo-50 rounded-lg">
-                <p class="text-indigo-800 font-semibold">اشتراك شهري: 10000 دينار عراقي</p>
-                <p class="text-indigo-600 text-sm mt-2">📱 للدفع: زين كاش 07814164745</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="space-y-4">
-                    <h3 class="font-bold text-lg text-indigo-700 mb-4">📋 البيانات المطلوبة للخارطة الفلكية:</h3>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">الاسم الكامل: <span class="text-red-500">*</span></label>
-                        <input type="text" id="astrologyName" placeholder="الاسم الكامل" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">تاريخ الميلاد: <span class="text-red-500">*</span></label>
-                        <input type="date" id="birthDate" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
-                    </div>
-                    
-                    <div class="grid grid-cols-2 gap-3">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">ساعة الولادة:</label>
-                            <select id="birthHour" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                                <option value="">غير محدد</option>
-                                <option value="00">00 (منتصف الليل)</option>
-                                <option value="01">01</option>
-                                <option value="02">02</option>
-                                <option value="03">03</option>
-                                <option value="04">04</option>
-                                <option value="05">05</option>
-                                <option value="06">06</option>
-                                <option value="07">07</option>
-                                <option value="08">08</option>
-                                <option value="09">09</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12 (الظهر)</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">دقيقة الولادة:</label>
-                            <select id="birthMinute" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                                <option value="">غير محدد</option>
-                                <option value="00">00</option>
-                                <option value="15">15</option>
-                                <option value="30">30</option>
-                                <option value="45">45</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">مكان الولادة: <span class="text-red-500">*</span></label>
-                        <input type="text" id="birthPlace" placeholder="المدينة، الدولة" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">رقم الهاتف: <span class="text-red-500">*</span></label>
-                        <input type="tel" id="astrologyPhone" placeholder="رقم الهاتف للتواصل" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
-                    </div>
-                </div>
-                
-                <div class="space-y-4">
-                    <h3 class="font-bold text-lg text-indigo-700 mb-4">🤖 قراءة بالذكاء الاصطناعي:</h3>
-                    
-                    <div class="space-y-3">
-                        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg border-l-4 border-indigo-400">
-                            <h4 class="font-bold text-indigo-800 mb-2">🔮 البرج الطالع (Ascendant)</h4>
-                            <p class="text-sm text-indigo-700">كيف تظهر للعالم وشخصيتك الخارجية</p>
-                        </div>
-                        
-                        <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-lg border-l-4 border-yellow-400">
-                            <h4 class="font-bold text-yellow-800 mb-2">🪐 مواقع الكواكب</h4>
-                            <p class="text-sm text-yellow-700">الشمس، القمر، عطارد، الزهرة، المريخ، المشتري، زحل</p>
-                        </div>
-                        
-                        <div class="bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-lg border-l-4 border-green-400">
-                            <h4 class="font-bold text-green-800 mb-2">🏠 البيوت الفلكية</h4>
-                            <p class="text-sm text-green-700">12 بيت يمثل مجالات حياتك (المال، العلاقات، العمل، الصحة)</p>
-                        </div>
-                        
-                        <div class="bg-gradient-to-r from-pink-50 to-rose-50 p-4 rounded-lg border-l-4 border-pink-400">
-                            <h4 class="font-bold text-pink-800 mb-2">📐 الزوايا الفلكية</h4>
-                            <p class="text-sm text-pink-700">العلاقات بين الكواكب وتأثيرها على شخصيتك</p>
-                        </div>
-                        
-                        <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-4 rounded-lg border-l-4 border-purple-400">
-                            <h4 class="font-bold text-purple-800 mb-2">🤖 تحليل ذكي شامل</h4>
-                            <p class="text-sm text-purple-700">نقاط القوة والضعف، التوجهات المستقبلية، النصائح المخصصة</p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-red-50 p-4 rounded-lg border border-red-200">
-                        <p class="text-red-800 text-sm font-semibold">⚠️ مهم جداً:</p>
-                        <p class="text-red-700 text-sm">وقت الولادة الدقيق مهم جداً لحساب البرج الطالع. تغيير الدقائق قد يغير النتيجة كلياً!</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-6 text-center">
-                <div class="mb-3 p-3 bg-yellow-50 rounded border-l-4 border-yellow-400">
-                    <p class="text-yellow-800 text-sm">🔒 متاح للمشتركين فقط</p>
-                </div>
-                <button id="astrologyAccessBtn" onclick="accessAstrologyReading()" class="bg-gray-400 text-white px-8 py-4 rounded-lg cursor-not-allowed text-lg font-bold" disabled>
-                    🔒 يتطلب اشتراك نشط
-                </button>
-            </div>
-            
-            <div class="mt-4 text-center">
-                <button onclick="subscribe('astrology', 10000)" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors">
-                    💳 اشترك الآن - 10000 دينار/شهر
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Generic Service Modal -->
-    <div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-50 modal hidden items-center justify-center z-50">
-        <div class="bg-white rounded-xl p-8 max-w-4xl w-full mx-4 max-h-96 overflow-y-auto">
-            <div class="flex justify-between items-center mb-6">
-                <h2 id="serviceModalTitle" class="text-2xl font-bold text-gray-800"></h2>
-                <button onclick="closeServiceModal()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-            </div>
-            <div id="serviceModalContent"></div>
-        </div>
-    </div>
-
-    <script>
-        let currentService = '';
-        
-        // Smooth scrolling
-        function scrollToServices() {
-            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Modal functions
-        function openModal(type) {
-            if (type === 'books' || type === 'zodiac' || type === 'donation' || type === 'horoscope' || type === 'astrology') {
-                document.getElementById(type + 'Modal').classList.remove('hidden');
-                document.getElementById(type + 'Modal').classList.add('flex');
-            } else {
-                openServiceModal(type);
-            }
-        }
-
-        function closeModal(type) {
-            document.getElementById(type + 'Modal').classList.add('hidden');
-            document.getElementById(type + 'Modal').classList.remove('flex');
-        }
-
-        function openServiceModal(service) {
-            currentService = service;
-            const modal = document.getElementById('serviceModal');
-            const title = document.getElementById('serviceModalTitle');
-            const content = document.getElementById('serviceModalContent');
-            
-            const services = {
-                tips: {
-                    title: '💡 النصائح اليومية',
-                    price: '2000 دينار/شهر',
-                    content: `
-                        <div class="mb-4 p-4 bg-yellow-50 rounded-lg">
-                            <p class="text-yellow-800 font-semibold">اشتراك شهري: 2000 دينار عراقي</p>
-                            <p class="text-yellow-600 text-sm mt-2">📱 للدفع: زين كاش 07814164745</p>
-                        </div>
-                        <div class="border rounded-lg p-6 text-center">
-                            <h3 class="font-bold mb-4 text-xl">النصائح اليومية</h3>
-                            <p class="text-gray-600 mb-4">احصل على نصائح يومية مخصصة عبر التواصل المباشر</p>
-                            <div class="space-y-3 mb-6">
-                                <div class="flex items-center justify-center space-x-3 space-x-reverse">
-                                    <span class="text-2xl">📱</span>
-                                    <span class="font-mono">07814164745</span>
-                                </div>
-                                <div class="flex items-center justify-center space-x-3 space-x-reverse">
-                                    <span class="text-2xl">📧</span>
-                                    <span class="font-mono">awarenessmaker310@gmail.com</span>
-                                </div>
-                            </div>
-                            <div class="p-3 bg-green-50 rounded border-l-4 border-green-400 mb-4">
-                                <p class="text-green-800 text-sm">✅ تواصل مباشر مع المختص</p>
-                                <p class="text-green-700 text-sm">✅ نصائح مخصصة حسب احتياجاتك</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 text-center">
-                            <button onclick="subscribe('tips', 2000)" class="bg-green-600 text-white px-6 py-3 rounded-lg">💳 اشترك الآن</button>
-                        </div>
-                    `
-                },
-                religion: {
-                    title: '🕌 العلوم الدينية',
-                    price: 'مجاني',
-                    content: `
-                        <div class="mb-4 p-4 bg-green-50 rounded-lg">
-                            <p class="text-green-800 font-semibold">خدمة مجانية</p>
-                        </div>
-                        <div class="grid md:grid-cols-3 gap-6">
-                            <div class="border rounded-lg p-4">
-                                <h3 class="font-bold mb-2">القرآن الكريم وتفسيره</h3>
-                                <input type="url" placeholder="رابط مجلد القرآن في Google Drive" class="w-full p-2 border rounded mb-2 text-sm">
-                                <button onclick="viewContent(this)" class="bg-emerald-600 text-white px-4 py-2 rounded">قراءة المحتوى</button>
-                            </div>
-                            <div class="border rounded-lg p-4">
-                                <h3 class="font-bold mb-2">الفقه الإسلامي</h3>
-                                <input type="url" placeholder="رابط مجلد الفقه في Google Drive" class="w-full p-2 border rounded mb-2 text-sm">
-                                <button onclick="viewContent(this)" class="bg-emerald-600 text-white px-4 py-2 rounded">قراءة المحتوى</button>
-                            </div>
-                            <div class="border rounded-lg p-4">
-                                <h3 class="font-bold mb-2">العقائد والأحاديث</h3>
-                                <input type="url" placeholder="رابط مجلد العقائد في Google Drive" class="w-full p-2 border rounded mb-2 text-sm">
-                                <button onclick="viewContent(this)" class="bg-emerald-600 text-white px-4 py-2 rounded">قراءة المحتوى</button>
-                            </div>
-                        </div>
-                    `
-                },
-                consultation: {
-                    title: '🤝 الاستشارات',
-                    price: '2000 دينار/استشارة',
-                    content: `
-                        <div class="mb-4 p-4 bg-orange-50 rounded-lg">
-                            <p class="text-orange-800 font-semibold">2000 دينار عراقي لكل استشارة</p>
-                            <p class="text-orange-600 text-sm mt-2">📱 للدفع: زين كاش 07814164745</p>
-                        </div>
-                        <form onsubmit="bookConsultation(event)" class="space-y-4">
-                            <input type="text" name="fullName" placeholder="الاسم الكامل" class="w-full p-3 border rounded-lg" required>
-                            <input type="tel" name="phone" placeholder="رقم الهاتف" class="w-full p-3 border rounded-lg" required>
-                            <input type="email" name="email" placeholder="البريد الإلكتروني" class="w-full p-3 border rounded-lg" required>
-                            <select name="consultationType" class="w-full p-3 border rounded-lg" required>
-                                <option value="">نوع الاستشارة</option>
-                                <option value="personal">شخصية</option>
-                                <option value="business">مهنية</option>
-                                <option value="family">عائلية</option>
-                                <option value="health">صحية</option>
-                                <option value="educational">تعليمية</option>
-                                <option value="legal">قانونية</option>
-                            </select>
-                            <textarea name="description" placeholder="وصف المشكلة أو الاستشارة المطلوبة بالتفصيل" rows="4" class="w-full p-3 border rounded-lg" required></textarea>
-                            <div class="p-3 bg-gray-50 rounded border">
-                                <p class="text-sm text-gray-600 mb-2">📧 سيتم إرسال طلب الاستشارة إلى:</p>
-                                <p class="font-mono text-sm bg-white p-2 rounded border">awarenessmaker310@gmail.com</p>
-                            </div>
-                            <button type="submit" class="w-full bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition-colors">💳 احجز الاستشارة - 2000 دينار</button>
-                        </form>
-                    `
-                },
-                medical: {
-                    title: '🏥 التخدير والعناية المركزة',
-                    price: 'مجاني',
-                    content: `
-                        <div class="mb-4 p-4 bg-green-50 rounded-lg">
-                            <p class="text-green-800 font-semibold">خدمة مجانية</p>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="border rounded-lg p-4">
-                                <h3 class="font-bold mb-2">أساسيات التخدير</h3>
-                                <input type="url" placeholder="رابط Google Drive للمحتوى" class="w-full p-2 border rounded mb-2 text-sm">
-                                <button onclick="viewContent(this)" class="bg-teal-600 text-white px-4 py-2 rounded">عرض المحتوى</button>
-                            </div>
-                            <div class="border rounded-lg p-4">
-                                <h3 class="font-bold mb-2">العناية المركزة</h3>
-                                <input type="url" placeholder="رابط Google Drive للمحتوى" class="w-full p-2 border rounded mb-2 text-sm">
-                                <button onclick="viewContent(this)" class="bg-teal-600 text-white px-4 py-2 rounded">عرض المحتوى</button>
-                            </div>
-                        </div>
-                    `
-                },
-                computer: {
-                    title: '💻 تعلم الحاسوب والبرامج',
-                    price: 'مجاني',
-                    content: `
-                        <div class="mb-4 p-4 bg-green-50 rounded-lg">
-                            <p class="text-green-800 font-semibold">خدمة مجانية</p>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="border rounded-lg p-4">
-                                <h3 class="font-bold mb-2">أساسيات الحاسوب</h3>
-                                <input type="url" placeholder="رابط Google Drive للمحتوى" class="w-full p-2 border rounded mb-2 text-sm">
-                                <button onclick="viewContent(this)" class="bg-indigo-600 text-white px-4 py-2 rounded">ابدأ التعلم</button>
-                            </div>
-                            <div class="border rounded-lg p-4">
-                                <h3 class="font-bold mb-2">برامج المكتب</h3>
-                                <input type="url" placeholder="رابط Google Drive للمحتوى" class="w-full p-2 border rounded mb-2 text-sm">
-                                <button onclick="viewContent(this)" class="bg-indigo-600 text-white px-4 py-2 rounded">ابدأ التعلم</button>
-                            </div>
-                        </div>
-                    `
-                },
-                movies: {
-                    title: '🎬 الأفلام والمسلسلات',
-                    price: '1000 دينار/شهر',
-                    content: `
-                        <div class="mb-4 p-4 bg-pink-50 rounded-lg">
-                            <p class="text-pink-800 font-semibold">اشتراك شهري: 1000 دينار عراقي</p>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="border rounded-lg p-4">
-                                <h3 class="font-bold mb-2">أفلام أجنبية مترجمة</h3>
-                                <input type="url" placeholder="رابط Google Drive للفيلم" class="w-full p-2 border rounded mb-2 text-sm">
-                                <button onclick="watchContent(this)" class="bg-pink-600 text-white px-4 py-2 rounded">🎥 مشاهدة</button>
-                            </div>
-                            <div class="border rounded-lg p-4">
-                                <h3 class="font-bold mb-2">مسلسلات أجنبية</h3>
-                                <input type="url" placeholder="رابط Google Drive للمسلسل" class="w-full p-2 border rounded mb-2 text-sm">
-                                <button onclick="watchContent(this)" class="bg-pink-600 text-white px-4 py-2 rounded">🎥 مشاهدة</button>
-                            </div>
-                        </div>
-                        <div class="mt-6 text-center">
-                            <button onclick="subscribe('movies', 1000)" class="bg-pink-600 text-white px-6 py-3 rounded-lg">💳 اشترك الآن</button>
-                        </div>
-                    `
-                },
-                software: {
-                    title: '⚙️ برامج الحاسوب المفعلة',
-                    price: '5000 دينار/شهر',
-                    content: `
-                        <div class="mb-4 p-4 bg-gray-50 rounded-lg">
-                            <p class="text-gray-800 font-semibold">اشتراك شهري: 5000 دينار عراقي</p>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="border rounded-lg p-4">
-                                <h3 class="font-bold mb-2">برامج التصميم</h3>
-                                <input type="url" placeholder="رابط Google Drive للبرنامج" class="w-full p-2 border rounded mb-2 text-sm">
-                                <button onclick="downloadSoftware(this)" class="bg-gray-600 text-white px-4 py-2 rounded">💾 تحميل</button>
-                            </div>
-                            <div class="border rounded-lg p-4">
-                                <h3 class="font-bold mb-2">برامج المونتاج</h3>
-                                <input type="url" placeholder="رابط Google Drive للبرنامج" class="w-full p-2 border rounded mb-2 text-sm">
-                                <button onclick="downloadSoftware(this)" class="bg-gray-600 text-white px-4 py-2 rounded">💾 تحميل</button>
-                            </div>
-                        </div>
-                        <div class="mt-6 text-center">
-                            <button onclick="subscribe('software', 5000)" class="bg-gray-600 text-white px-6 py-3 rounded-lg">💳 اشترك الآن</button>
-                        </div>
-                    `
-                },
-                marriage: {
-                    title: '💕 النصائح الزوجية',
-                    price: '2000 دينار/شهر',
-                    content: `
-                        <div class="mb-4 p-4 bg-rose-50 rounded-lg">
-                            <p class="text-rose-800 font-semibold">اشتراك شهري: 2000 دينار عراقي</p>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="border rounded-lg p-4">
-                                <h3 class="font-bold mb-2">أسرار العلاقة الزوجية</h3>
-                                <input type="url" placeholder="رابط Google Drive للمحتوى" class="w-full p-2 border rounded mb-2 text-sm">
-                                <button onclick="viewContent(this)" class="bg-rose-600 text-white px-4 py-2 rounded">عرض المحتوى</button>
-                            </div>
-                            <div class="border rounded-lg p-4">
-                                <h3 class="font-bold mb-2">حل المشاكل الزوجية</h3>
-                                <input type="url" placeholder="رابط Google Drive للمحتوى" class="w-full p-2 border rounded mb-2 text-sm">
-                                <button onclick="viewContent(this)" class="bg-rose-600 text-white px-4 py-2 rounded">عرض المحتوى</button>
-                            </div>
-                        </div>
-                        <div class="mt-6 text-center">
-                            <button onclick="subscribe('marriage', 2000)" class="bg-rose-600 text-white px-6 py-3 rounded-lg">💳 اشترك الآن</button>
-                        </div>
-                    `
-                },
-                problems: {
-                    title: '🤐 حل المشاكل الشخصية',
-                    price: '5000 دينار/شهر',
-                    content: `
-                        <div class="mb-4 p-4 bg-slate-50 rounded-lg">
-                            <p class="text-slate-800 font-semibold">اشتراك شهري: 5000 دينار عراقي - سرية تامة</p>
-                            <p class="text-slate-600 text-sm mt-2">📱 للدفع: زين كاش 07814164745</p>
-                        </div>
-                        <form onsubmit="submitProblem(event)" class="space-y-4">
-                            <input type="text" name="clientName" placeholder="الاسم (اختياري - يمكن ترك الحقل فارغ)" class="w-full p-3 border rounded-lg">
-                            <input type="tel" name="phone" placeholder="رقم الهاتف للتواصل" class="w-full p-3 border rounded-lg" required>
-                            <select name="problemType" class="w-full p-3 border rounded-lg" required>
-                                <option value="">نوع المشكلة</option>
-                                <option value="family">عائلية</option>
-                                <option value="work">مهنية</option>
-                                <option value="personal">شخصية</option>
-                                <option value="relationship">علاقات</option>
-                                <option value="financial">مالية</option>
-                                <option value="psychological">نفسية</option>
-                                <option value="social">اجتماعية</option>
-                            </select>
-                            <textarea name="problemDescription" placeholder="اكتب مشكلتك بالتفصيل - سرية تامة" rows="6" class="w-full p-3 border rounded-lg" required></textarea>
-                            <div class="text-sm text-gray-600 p-3 bg-gray-50 rounded">
-                                🔒 جميع المعلومات سرية تماماً ولن يتم مشاركتها مع أي طرف ثالث
-                            </div>
-                            <div class="p-3 bg-gray-50 rounded border">
-                                <p class="text-sm text-gray-600 mb-2">📧 سيتم إرسال المشكلة بسرية إلى:</p>
-                                <p class="font-mono text-sm bg-white p-2 rounded border">awarenessmaker310@gmail.com</p>
-                            </div>
-                            <button type="submit" class="w-full bg-slate-600 text-white py-3 rounded-lg hover:bg-slate-700 transition-colors">💳 اشترك وأرسل المشكلة - 5000 دينار</button>
-                        </form>
-                    `
-                }
-            };
-            
-            const serviceData = services[service];
-            if (serviceData) {
-                title.textContent = serviceData.title;
-                content.innerHTML = serviceData.content;
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-            }
-        }
-
-        function closeServiceModal() {
-            document.getElementById('serviceModal').classList.add('hidden');
-            document.getElementById('serviceModal').classList.remove('flex');
-        }
-
-        // Subscription management
-        let userSubscriptions = JSON.parse(localStorage.getItem('userSubscriptions') || '{}');
-        
-        function checkSubscription(service) {
-            const subscription = userSubscriptions[service];
-            if (!subscription) return false;
-            
-            const now = new Date().getTime();
-            const expiryDate = new Date(subscription.expiryDate).getTime();
-            
-            if (now > expiryDate) {
-                delete userSubscriptions[service];
-                localStorage.setItem('userSubscriptions', JSON.stringify(userSubscriptions));
-                return false;
-            }
-            return true;
-        }
-        
-        function activateSubscription(service, duration = 30) {
-            const expiryDate = new Date();
-            expiryDate.setDate(expiryDate.getDate() + duration);
-            
-            userSubscriptions[service] = {
-                activatedDate: new Date().toISOString(),
-                expiryDate: expiryDate.toISOString()
-            };
-            
-            localStorage.setItem('userSubscriptions', JSON.stringify(userSubscriptions));
-            updateSubscriptionUI();
-        }
-        
-        function updateSubscriptionUI() {
-            // Update books access
-            const booksBtn = document.getElementById('accessBooksBtn');
-            if (booksBtn) {
-                if (checkSubscription('books')) {
-                    booksBtn.textContent = '📚 دخول إلى المكتبة';
-                    booksBtn.className = 'bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer';
-                    booksBtn.disabled = false;
-                } else {
-                    booksBtn.textContent = '🔒 يتطلب اشتراك نشط';
-                    booksBtn.className = 'bg-gray-400 text-white px-6 py-3 rounded-lg cursor-not-allowed';
-                    booksBtn.disabled = true;
-                }
-            }
-            
-            // Update astrology access
-            const astrologyBtn = document.getElementById('astrologyAccessBtn');
-            if (astrologyBtn) {
-                if (checkSubscription('astrology')) {
-                    astrologyBtn.textContent = '🌟 احسب طالعك بالذكاء الاصطناعي';
-                    astrologyBtn.className = 'bg-indigo-600 text-white px-8 py-4 rounded-lg hover:bg-indigo-700 transition-colors text-lg font-bold cursor-pointer';
-                    astrologyBtn.disabled = false;
-                } else {
-                    astrologyBtn.textContent = '🔒 يتطلب اشتراك نشط';
-                    astrologyBtn.className = 'bg-gray-400 text-white px-8 py-4 rounded-lg cursor-not-allowed text-lg font-bold';
-                    astrologyBtn.disabled = true;
-                }
-            }
-        }
-
-        // Content functions
-        function accessBooks() {
-            if (!checkSubscription('books')) {
-                alert('⚠️ يتطلب اشتراك نشط في خدمة الكتب الإلكترونية');
-                return;
-            }
-            
-            const url = document.getElementById('booksLink').value;
-            if (!url) {
-                alert('⚠️ لم يتم تحديد رابط المكتبة بعد');
-                return;
-            }
-            window.open(url, '_blank', 'noopener,noreferrer');
-        }
-
-        function readBook(button) {
-            const url = button.previousElementSibling.value;
-            if (!url) {
-                alert('⚠️ يرجى إدخال رابط الكتاب من Google Drive');
-                return;
-            }
-            window.open(url, '_blank', 'noopener,noreferrer');
-        }
-
-        function viewContent(button) {
-            const url = button.previousElementSibling.value;
-            if (!url) {
-                alert('⚠️ يرجى إدخال رابط المحتوى من Google Drive');
-                return;
-            }
-            window.open(url, '_blank', 'noopener,noreferrer');
-        }
-
-        function watchContent(button) {
-            const url = button.previousElementSibling.value;
-            if (!url) {
-                alert('⚠️ يرجى إدخال رابط الفيلم/المسلسل من Google Drive');
-                return;
-            }
-            window.open(url, '_blank', 'noopener,noreferrer');
-        }
-
-        function downloadSoftware(button) {
-            const url = button.previousElementSibling.value;
-            if (!url) {
-                alert('⚠️ يرجى إدخال رابط البرنامج من Google Drive');
-                return;
-            }
-            window.open(url, '_blank', 'noopener,noreferrer');
-        }
-
-        // Horoscope functions
-        function accessDailyHoroscope() {
-            if (!checkSubscription('horoscope')) {
-                alert('⚠️ يتطلب اشتراك نشط في خدمة توقعات الأبراج');
-                return;
-            }
-            alert('🌅 التوقعات اليومية متاحة الآن!\n\nسيتم إرسال التوقعات اليومية على:\n📧 awarenessmaker310@gmail.com\n📱 07814164745');
-        }
-
-        function accessMonthlyHoroscope() {
-            if (!checkSubscription('horoscope')) {
-                alert('⚠️ يتطلب اشتراك نشط في خدمة توقعات الأبراج');
-                return;
-            }
-            alert('📅 التوقعات الشهرية متاحة الآن!\n\nسيتم إرسال التوقعات الشهرية على:\n📧 awarenessmaker310@gmail.com\n📱 07814164745');
-        }
-
-        // Subscription function
-        function subscribe(service, price) {
-            const services = {
-                books: 'الكتب الإلكترونية',
-                tips: 'النصائح اليومية',
-                movies: 'الأفلام والمسلسلات',
-                software: 'برامج الحاسوب',
-                marriage: 'النصائح الزوجية',
-                problems: 'حل المشاكل الشخصية',
-                horoscope: 'توقعات الأبراج',
-                consultation: 'الاستشارات',
-                astrology: 'قراءة الطالع الفلكي'
-            };
-            
-            console.log('Subscribe function called:', service, price);
-            
-            // فتح نافذة طلب التفعيل
-            openActivationModal(service, services[service], price);
-        }
-
-        // Activation Request Modal
-        function openActivationModal(serviceId, serviceName, price) {
-            console.log('Opening activation modal:', serviceId, serviceName, price);
-            
-            // إزالة أي نافذة موجودة مسبقاً
-            const existingModal = document.querySelector('.activation-modal');
-            if (existingModal) {
-                existingModal.remove();
-            }
-            
-            const modal = document.createElement('div');
-            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 activation-modal';
-            modal.innerHTML = `
-                <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4">
-                    <div class="text-center mb-6">
-                        <h2 class="text-2xl font-bold text-gray-800 mb-2">🔐 طلب تفعيل الاشتراك</h2>
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <h3 class="font-bold text-blue-800">${serviceName}</h3>
-                            <p class="text-blue-600 text-lg font-bold">${price} دينار عراقي/شهر</p>
-                        </div>
-                    </div>
-                    
-                    <form id="activationForm" class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">الاسم الكامل: <span class="text-red-500">*</span></label>
-                            <input type="text" name="fullName" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">رقم الهاتف: <span class="text-red-500">*</span></label>
-                            <input type="tel" name="phone" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">البريد الإلكتروني: <span class="text-red-500">*</span></label>
-                            <input type="email" name="email" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        </div>
-                        
-                        <div class="bg-gray-50 p-4 rounded-lg border">
-                            <p class="text-sm text-gray-600 mb-2">📧 سيتم إرسال طلب التفعيل إلى:</p>
-                            <p class="font-mono text-sm bg-white p-2 rounded border text-center">awarenessmaker310@gmail.com</p>
-                        </div>
-                        
-                        <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
-                            <h4 class="font-bold text-yellow-800 mb-2">⚠️ مهم:</h4>
-                            <p class="text-sm text-yellow-700">بعد إرسال الطلب، ستحتاج إلى موافقة الإدارة لتفعيل اشتراكك. سيتم التواصل معك عبر البريد الإلكتروني.</p>
-                        </div>
-                        
-                        <div class="flex space-x-3 space-x-reverse">
-                            <button type="submit" class="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
-                                📤 إرسال طلب التفعيل
-                            </button>
-                            <button type="button" onclick="closeActivationModal()" class="flex-1 bg-gray-500 text-white py-3 rounded-lg hover:bg-gray-600 transition-colors">
-                                إلغاء
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
-            
-            // إضافة مستمع الأحداث للنموذج
-            const form = document.getElementById('activationForm');
-            form.addEventListener('submit', function(event) {
-                event.preventDefault();
-                submitActivationRequest(event, serviceId, serviceName, price);
-            });
-        }
-
-        function closeActivationModal() {
-            const modal = document.querySelector('.activation-modal');
-            if (modal) {
-                modal.remove();
-            }
-        }
-
-        function submitActivationRequest(event, serviceId, serviceName, price) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const fullName = formData.get('fullName');
-            const phone = formData.get('phone');
-            const email = formData.get('email');
-            
-            // إنشاء طلب التفعيل
-            const activationRequest = {
-                id: Date.now().toString(),
-                service: serviceId,
-                serviceName: serviceName,
-                price: price,
-                customerName: fullName,
-                phone: phone,
-                email: email,
-                requestDate: new Date().toISOString(),
-                status: 'pending'
-            };
-            
-            // حفظ طلب التفعيل محلياً
-            let requests = JSON.parse(localStorage.getItem('activationRequests') || '[]');
-            requests.push(activationRequest);
-            localStorage.setItem('activationRequests', JSON.stringify(requests));
-            
-            // إغلاق النافذة
-            closeActivationModal();
-            
-            // إظهار رسالة تأكيد
-            alert(`📤 تم إرسال طلب التفعيل بنجاح!\n\n📋 تفاصيل الطلب:\n• الخدمة: ${serviceName}\n• الاسم: ${fullName}\n• الهاتف: ${phone}\n• البريد الإلكتروني: ${email}\n\n📧 تم إرسال الطلب إلى: awarenessmaker310@gmail.com\n\n⏳ في انتظار موافقة الإدارة...\n\nسيتم التواصل معك عبر البريد الإلكتروني بمجرد الموافقة على طلبك.`);
-            
-            // محاكاة استلام طلب التفعيل من قبل الإدارة
-            setTimeout(() => {
-                showAdminApprovalDialog(activationRequest);
-            }, 2000);
-        }
-
-        // Admin Approval Dialog (محاكاة نافذة الموافقة للإدارة)
-        function showAdminApprovalDialog(request) {
-            const adminModal = document.createElement('div');
-            adminModal.className = 'fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50';
-            adminModal.innerHTML = `
-                <div class="bg-white rounded-xl p-8 max-w-lg w-full mx-4 border-4 border-orange-400">
-                    <div class="text-center mb-6">
-                        <h2 class="text-2xl font-bold text-orange-600 mb-2">🔔 طلب تفعيل جديد - نافذة الإدارة</h2>
-                        <div class="bg-orange-50 p-4 rounded-lg">
-                            <p class="text-orange-800 font-semibold">تم استلام طلب تفعيل اشتراك جديد</p>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-3 mb-6">
-                        <div class="bg-gray-50 p-3 rounded">
-                            <strong>الخدمة:</strong> ${request.serviceName}
-                        </div>
-                        <div class="bg-gray-50 p-3 rounded">
-                            <strong>الاسم:</strong> ${request.customerName}
-                        </div>
-                        <div class="bg-gray-50 p-3 rounded">
-                            <strong>الهاتف:</strong> ${request.phone}
-                        </div>
-                        <div class="bg-gray-50 p-3 rounded">
-                            <strong>البريد الإلكتروني:</strong> ${request.email}
-                        </div>
-                        <div class="bg-gray-50 p-3 rounded">
-                            <strong>السعر:</strong> ${request.price} دينار/شهر
-                        </div>
-                    </div>
-                    
-                    <div class="bg-blue-50 p-4 rounded-lg mb-6">
-                        <p class="text-blue-800 text-sm">
-                            <strong>سؤال للإدارة:</strong><br>
-                            هل تريد فتح قسم "${request.serviceName}" للمستخدم "${request.customerName}" (${request.email})؟
-                        </p>
-                    </div>
-                    
-                    <div class="flex space-x-3 space-x-reverse">
-                        <button onclick="approveActivation('${request.id}')" class="flex-1 bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors">
-                            ✅ موافقة وتفعيل
-                        </button>
-                        <button onclick="rejectActivation('${request.id}')" class="flex-1 bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors">
-                            ❌ رفض الطلب
-                        </button>
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(adminModal);
-        }
-
-        // Approve activation
-        function approveActivation(requestId) {
-            let requests = JSON.parse(localStorage.getItem('activationRequests') || '[]');
-            const request = requests.find(r => r.id === requestId);
-            
-            if (request) {
-                // تحديث حالة الطلب
-                request.status = 'approved';
-                request.approvalDate = new Date().toISOString();
-                localStorage.setItem('activationRequests', JSON.stringify(requests));
-                
-                // تفعيل الاشتراك
-                activateSubscription(request.service);
-                
-                // إغلاق نافذة الإدارة
-                document.querySelector('.fixed.inset-0.bg-black.bg-opacity-70').remove();
-                
-                // إظهار رسالة تأكيد للإدارة
-                alert(`✅ تم تفعيل الاشتراك بنجاح!\n\n👤 المستخدم: ${request.customerName}\n📧 البريد: ${request.email}\n🎯 الخدمة: ${request.serviceName}\n\n📧 سيتم إرسال إشعار تفعيل إلى المستخدم.`);
-                
-                // محاكاة إرسال إيميل تفعيل للمستخدم
-                setTimeout(() => {
-                    alert(`📧 تم إرسال إيميل التفعيل!\n\nإلى: ${request.email}\n\nالرسالة:\n"مرحباً ${request.customerName},\n\nتم تفعيل اشتراكك في ${request.serviceName} بنجاح!\nيمكنك الآن الوصول إلى جميع محتويات الخدمة.\n\nشكراً لك،\nفريق صانع وعي"`);
-                }, 1000);
-            }
-        }
-
-        // Reject activation
-        function rejectActivation(requestId) {
-            let requests = JSON.parse(localStorage.getItem('activationRequests') || '[]');
-            const request = requests.find(r => r.id === requestId);
-            
-            if (request) {
-                // تحديث حالة الطلب
-                request.status = 'rejected';
-                request.rejectionDate = new Date().toISOString();
-                localStorage.setItem('activationRequests', JSON.stringify(requests));
-                
-                // إغلاق نافذة الإدارة
-                document.querySelector('.fixed.inset-0.bg-black.bg-opacity-70').remove();
-                
-                // إظهار رسالة رفض
-                alert(`❌ تم رفض طلب التفعيل\n\n👤 المستخدم: ${request.customerName}\n📧 البريد: ${request.email}\n🎯 الخدمة: ${request.serviceName}\n\n📧 سيتم إرسال إشعار الرفض إلى المستخدم.`);
-                
-                // محاكاة إرسال إيميل رفض للمستخدم
-                setTimeout(() => {
-                    alert(`📧 تم إرسال إيميل الرفض!\n\nإلى: ${request.email}\n\nالرسالة:\n"مرحباً ${request.customerName},\n\nنأسف لإبلاغك أنه تم رفض طلب تفعيل اشتراكك في ${request.serviceName}.\nيرجى التواصل معنا للمزيد من التفاصيل.\n\nشكراً لك،\nفريق صانع وعي"`);
-                }, 1000);
-            }
-        }
-
-        // Contact form
-        function sendMessage(event) {
-            event.preventDefault();
-            alert('📧 تم إرسال رسالتك بنجاح! سنتواصل معك قريباً على الرقم المذكور.');
-            event.target.reset();
-        }
-
-        // Donation function
-        function submitDonation(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const donorName = formData.get('donorName') || event.target[0].value;
-            const amount = formData.get('amount') || event.target[1].value;
-            const country = formData.get('country') || event.target[2].value;
-            const phone = formData.get('phone') || event.target[3].value;
-            
-            // هنا يمكن إضافة الكود لحفظ البيانات في قاعدة بيانات Excel
-            alert(`❤️ شكراً لك على التبرع!\n\nالمتبرع: ${donorName}\nالمبلغ: ${amount} دينار\nالدولة: ${country}\nالهاتف: ${phone}\n\nسيتم التواصل معك لتأكيد التبرع.`);
-            event.target.reset();
-            closeModal('donation');
-        }
-
-        // Consultation booking
-        function bookConsultation(event) {
-            event.preventDefault();
-            alert('🤝 تم حجز الاستشارة بنجاح!\n\nسيتم التواصل معك خلال 24 ساعة لتحديد موعد الاستشارة.\n\nللدفع: زين كاش 07814164745');
-            event.target.reset();
-            closeServiceModal();
-        }
-
-        // Problem submission
-        function submitProblem(event) {
-            event.preventDefault();
-            alert('🤐 تم استلام مشكلتك بسرية تامة!\n\nسيتم دراسة المشكلة وتقديم الحلول المناسبة.\n\nللدفع: زين كاش 07814164745');
-            event.target.reset();
-            closeServiceModal();
-        }
-
-        // Zodiac calculator using Arabic Gematria
-        function calculateZodiac() {
-            const fullName = document.getElementById('fullName').value.trim();
-            const motherName = document.getElementById('motherName').value.trim();
-            
-            if (!fullName || !motherName) {
-                alert('⚠️ يرجى إدخال اسمك الكامل واسم الأم');
-                return;
-            }
-
-            // Arabic Gematria values (حساب الجمل الكبير) - الجدول الصحيح
-            const arabicValues = {
-                'ا': 1, 'أ': 1, 'إ': 1, 'آ': 1, 'ء': 1,
-                'ب': 2, 'ج': 3, 'د': 4, 'ه': 5, 'و': 6,
-                'ز': 7, 'ح': 8, 'ط': 9, 'ي': 10, 'ك': 20, 'ل': 30,
-                'م': 40, 'ن': 50, 'س': 60, 'ع': 70, 'ف': 80, 'ص': 90,
-                'ق': 100, 'ر': 200, 'ش': 300, 'ت': 400, 'ث': 500, 'خ': 600,
-                'ذ': 700, 'ض': 800, 'ظ': 900, 'غ': 1000
-            };
-
-            // Calculate total value for full name
-            let nameValue = 0;
-            for (let char of fullName.replace(/\s/g, '')) {
-                if (arabicValues[char]) {
-                    nameValue += arabicValues[char];
-                }
-            }
-
-            // Calculate total value for mother's name
-            let motherValue = 0;
-            for (let char of motherName.replace(/\s/g, '')) {
-                if (arabicValues[char]) {
-                    motherValue += arabicValues[char];
-                }
-            }
-
-            // Total value of both names
-            const totalValue = nameValue + motherValue;
-
-            // Calculate zodiac index (remainder when divided by 12)
-            // إذا كان الباقي 0، يصبح البرج رقم 12 (الحوت)
-            let zodiacIndex = totalValue % 12;
-            if (zodiacIndex === 0) zodiacIndex = 12;
-
-            // Zodiac signs array (1-12) - التسلسل الصحيح للأبراج
-            const zodiacSigns = {
-                1: { name: 'الحمل', symbol: '♈', dates: 'مارس 21 - أبريل 19', traits: 'شجاع، قيادي، متحمس، مبادر' },
-                2: { name: 'الثور', symbol: '♉', dates: 'أبريل 20 - مايو 20', traits: 'صبور، عملي، موثوق، مثابر' },
-                3: { name: 'الجوزاء', symbol: '♊', dates: 'مايو 21 - يونيو 20', traits: 'ذكي، متكيف، اجتماعي، فضولي' },
-                4: { name: 'السرطان', symbol: '♋', dates: 'يونيو 21 - يوليو 22', traits: 'حساس، حنون، حدسي، عائلي' },
-                5: { name: 'الأسد', symbol: '♌', dates: 'يوليو 23 - أغسطس 22', traits: 'واثق، كريم، مبدع، قيادي' },
-                6: { name: 'العذراء', symbol: '♍', dates: 'أغسطس 23 - سبتمبر 22', traits: 'منظم، تحليلي، مفيد، دقيق' },
-                7: { name: 'الميزان', symbol: '♎', dates: 'سبتمبر 23 - أكتوبر 22', traits: 'متوازن، دبلوماسي، عادل، اجتماعي' },
-                8: { name: 'العقرب', symbol: '♏', dates: 'أكتوبر 23 - نوفمبر 21', traits: 'قوي، غامض، شغوف، عميق' },
-                9: { name: 'القوس', symbol: '♐', dates: 'نوفمبر 22 - ديسمبر 21', traits: 'مغامر، متفائل، حر، فلسفي' },
-                10: { name: 'الجدي', symbol: '♑', dates: 'ديسمبر 22 - يناير 19', traits: 'طموح، منضبط، مسؤول، عملي' },
-                11: { name: 'الدلو', symbol: '♒', dates: 'يناير 20 - فبراير 18', traits: 'مبتكر، مستقل، إنساني، مفكر' },
-                12: { name: 'الحوت', symbol: '♓', dates: 'فبراير 19 - مارس 20', traits: 'حالم، رحيم، فني، روحاني' }
-            };
-
-            const zodiac = zodiacSigns[zodiacIndex];
-
-            document.getElementById('zodiacResult').innerHTML = `
-                <div class="zodiac-result">
-                    <div class="text-4xl mb-3">${zodiac.symbol}</div>
-                    <h3 class="text-2xl font-bold mb-2">برجك: ${zodiac.name}</h3>
-                    <p class="mb-2"><strong>التواريخ:</strong> ${zodiac.dates}</p>
-                    <p class="mb-3"><strong>الصفات:</strong> ${zodiac.traits}</p>
-                    <div class="text-sm opacity-90 space-y-1">
-                        <p>قيمة الاسم: ${nameValue}</p>
-                        <p>قيمة اسم الأم: ${motherValue}</p>
-                        <p>المجموع الكلي: ${totalValue}</p>
-                        <p class="text-xs opacity-75">الحساب: ${totalValue} ÷ 12 = ${Math.floor(totalValue/12)} والباقي ${totalValue % 12 === 0 ? 12 : totalValue % 12} → البرج رقم ${zodiacIndex}</p>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-white border-opacity-30">
-                        <button onclick="openModal('horoscope')" class="bg-yellow-400 text-purple-800 px-4 py-2 rounded-lg font-bold hover:bg-yellow-300 transition-colors">
-                            🔮 اشترك في توقعات ${zodiac.name}
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Astrology reading access for subscribers
-        function accessAstrologyReading() {
-            if (!checkSubscription('astrology')) {
-                alert('⚠️ يتطلب اشتراك نشط في خدمة قراءة الطالع الفلكي');
-                return;
-            }
-            
-            const name = document.getElementById('astrologyName').value.trim();
-            const birthDate = document.getElementById('birthDate').value;
-            const birthHour = document.getElementById('birthHour').value;
-            const birthMinute = document.getElementById('birthMinute').value;
-            const birthPlace = document.getElementById('birthPlace').value.trim();
-            const phone = document.getElementById('astrologyPhone').value.trim();
-            
-            if (!name || !birthDate || !birthPlace) {
-                alert('⚠️ يرجى ملء الحقول المطلوبة (الاسم، تاريخ الميلاد، مكان الولادة)');
-                return;
-            }
-            
-            // تنسيق وقت الولادة
-            let birthTime = '';
-            if (birthHour && birthMinute) {
-                birthTime = `${birthHour}:${birthMinute}`;
-            } else if (birthHour) {
-                birthTime = `${birthHour}:00 (تقريبي)`;
-            } else {
-                birthTime = 'غير محدد';
-            }
-            
-            // إغلاق النافذة الحالية
-            closeModal('astrology');
-            
-            // عرض نافذة قراءة الطالع بالذكاء الاصطناعي
-            generateAstrologyReading(name, birthDate, birthTime, birthPlace, phone);
-        }
-        
-        // Generate AI-powered astrology reading
-        function generateAstrologyReading(name, birthDate, birthTime, birthPlace, phone) {
-            // محاكاة الذكاء الاصطناعي لقراءة الطالع
-            const birthDateObj = new Date(birthDate);
-            const month = birthDateObj.getMonth() + 1;
-            const day = birthDateObj.getDate();
-            
-            // تحديد البرج الشمسي
-            let sunSign = '';
-            let sunSignSymbol = '';
-            let sunSignTraits = '';
-            
-            if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) {
-                sunSign = 'الحمل'; sunSignSymbol = '♈'; sunSignTraits = 'شجاع، قيادي، متحمس، مبادر';
-            } else if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) {
-                sunSign = 'الثور'; sunSignSymbol = '♉'; sunSignTraits = 'صبور، عملي، موثوق، مثابر';
-            } else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
-                sunSign = 'الجوزاء'; sunSignSymbol = '♊'; sunSignTraits = 'ذكي، متكيف، اجتماعي، فضولي';
-            } else if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) {
-                sunSign = 'السرطان'; sunSignSymbol = '♋'; sunSignTraits = 'حساس، حنون، حدسي، عائلي';
-            } else if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) {
-                sunSign = 'الأسد'; sunSignSymbol = '♌'; sunSignTraits = 'واثق، كريم، مبدع، قيادي';
-            } else if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) {
-                sunSign = 'العذراء'; sunSignSymbol = '♍'; sunSignTraits = 'منظم، تحليلي، مفيد، دقيق';
-            } else if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) {
-                sunSign = 'الميزان'; sunSignSymbol = '♎'; sunSignTraits = 'متوازن، دبلوماسي، عادل، اجتماعي';
-            } else if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) {
-                sunSign = 'العقرب'; sunSignSymbol = '♏'; sunSignTraits = 'قوي، غامض، شغوف، عميق';
-            } else if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) {
-                sunSign = 'القوس'; sunSignSymbol = '♐'; sunSignTraits = 'مغامر، متفائل، حر، فلسفي';
-            } else if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) {
-                sunSign = 'الجدي'; sunSignSymbol = '♑'; sunSignTraits = 'طموح، منضبط، مسؤول، عملي';
-            } else if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) {
-                sunSign = 'الدلو'; sunSignSymbol = '♒'; sunSignTraits = 'مبتكر، مستقل، إنساني، مفكر';
-            } else {
-                sunSign = 'الحوت'; sunSignSymbol = '♓'; sunSignTraits = 'حالم، رحيم، فني، روحاني';
-            }
-            
-            // محاكاة البرج الطالع (عشوائي بناءً على الوقت والمكان)
-            const ascendantSigns = ['الحمل', 'الثور', 'الجوزاء', 'السرطان', 'الأسد', 'العذراء', 'الميزان', 'العقرب', 'القوس', 'الجدي', 'الدلو', 'الحوت'];
-            const ascendantSymbols = ['♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒', '♓'];
-            const ascendantIndex = (birthDateObj.getTime() + (birthTime ? parseInt(birthTime.split(':')[0]) * 60 + parseInt(birthTime.split(':')[1] || 0) : 0)) % 12;
-            const ascendant = ascendantSigns[ascendantIndex];
-            const ascendantSymbol = ascendantSymbols[ascendantIndex];
-            
-            // محاكاة مواقع الكواكب
-            const planets = {
-                moon: ascendantSigns[(ascendantIndex + 2) % 12],
-                mercury: ascendantSigns[(ascendantIndex + 3) % 12],
-                venus: ascendantSigns[(ascendantIndex + 4) % 12],
-                mars: ascendantSigns[(ascendantIndex + 5) % 12],
-                jupiter: ascendantSigns[(ascendantIndex + 6) % 12],
-                saturn: ascendantSigns[(ascendantIndex + 7) % 12]
-            };
-            
-            // إنشاء نافذة النتائج
-            const resultModal = document.createElement('div');
-            resultModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
-            resultModal.innerHTML = `
-                <div class="bg-white rounded-xl p-8 max-w-4xl w-full mx-4 max-h-96 overflow-y-auto">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-gray-800">🤖 قراءة الطالع الفلكي بالذكاء الاصطناعي</h2>
-                        <button onclick="closeAstrologyResult()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-                    </div>
-                    
-                    <div class="mb-6 p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border">
-                        <h3 class="font-bold text-lg text-indigo-800 mb-2">📋 بيانات الشخص:</h3>
-                        <div class="grid md:grid-cols-2 gap-4 text-sm">
-                            <p><strong>الاسم:</strong> ${name}</p>
-                            <p><strong>تاريخ الميلاد:</strong> ${birthDate}</p>
-                            <p><strong>وقت الولادة:</strong> ${birthTime}</p>
-                            <p><strong>مكان الولادة:</strong> ${birthPlace}</p>
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="space-y-4">
-                            <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-lg border-l-4 border-yellow-400">
-                                <h4 class="font-bold text-yellow-800 mb-2">☀️ البرج الشمسي</h4>
-                                <div class="flex items-center space-x-3 space-x-reverse mb-2">
-                                    <span class="text-3xl">${sunSignSymbol}</span>
-                                    <span class="text-xl font-bold">${sunSign}</span>
-                                </div>
-                                <p class="text-sm text-yellow-700"><strong>الصفات:</strong> ${sunSignTraits}</p>
-                            </div>
-                            
-                            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg border-l-4 border-indigo-400">
-                                <h4 class="font-bold text-indigo-800 mb-2">🔮 البرج الطالع</h4>
-                                <div class="flex items-center space-x-3 space-x-reverse mb-2">
-                                    <span class="text-3xl">${ascendantSymbol}</span>
-                                    <span class="text-xl font-bold">${ascendant}</span>
-                                </div>
-                                <p class="text-sm text-indigo-700">كيف تظهر للعالم وانطباعك الأول على الآخرين</p>
-                            </div>
-                            
-                            <div class="bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-lg border-l-4 border-green-400">
-                                <h4 class="font-bold text-green-800 mb-2">🪐 مواقع الكواكب</h4>
-                                <div class="space-y-1 text-sm text-green-700">
-                                    <p><strong>القمر:</strong> ${planets.moon} - المشاعر والعواطف</p>
-                                    <p><strong>عطارد:</strong> ${planets.mercury} - التفكير والتواصل</p>
-                                    <p><strong>الزهرة:</strong> ${planets.venus} - الحب والجمال</p>
-                                    <p><strong>المريخ:</strong> ${planets.mars} - الطاقة والدافع</p>
-                                    <p><strong>المشتري:</strong> ${planets.jupiter} - الحظ والتوسع</p>
-                                    <p><strong>زحل:</strong> ${planets.saturn} - الدروس والمسؤوليات</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="space-y-4">
-                            <div class="bg-gradient-to-r from-pink-50 to-rose-50 p-4 rounded-lg border-l-4 border-pink-400">
-                                <h4 class="font-bold text-pink-800 mb-2">🤖 تحليل الذكاء الاصطناعي</h4>
-                                <div class="space-y-2 text-sm text-pink-700">
-                                    <p><strong>نقاط القوة:</strong> ${getStrengths(sunSign, ascendant)}</p>
-                                    <p><strong>التحديات:</strong> ${getChallenges(sunSign, ascendant)}</p>
-                                    <p><strong>المجال المهني المناسب:</strong> ${getCareerAdvice(sunSign, ascendant)}</p>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-4 rounded-lg border-l-4 border-purple-400">
-                                <h4 class="font-bold text-purple-800 mb-2">🏠 البيوت الفلكية الرئيسية</h4>
-                                <div class="space-y-1 text-sm text-purple-700">
-                                    <p><strong>البيت الأول (الشخصية):</strong> ${ascendant}</p>
-                                    <p><strong>البيت السابع (العلاقات):</strong> ${ascendantSigns[(ascendantIndex + 6) % 12]}</p>
-                                    <p><strong>البيت العاشر (المهنة):</strong> ${ascendantSigns[(ascendantIndex + 9) % 12]}</p>
-                                    <p><strong>البيت الرابع (العائلة):</strong> ${ascendantSigns[(ascendantIndex + 3) % 12]}</p>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-gradient-to-r from-orange-50 to-red-50 p-4 rounded-lg border-l-4 border-orange-400">
-                                <h4 class="font-bold text-orange-800 mb-2">🔮 نصائح مستقبلية</h4>
-                                <div class="space-y-1 text-sm text-orange-700">
-                                    <p>• ${getFutureAdvice(sunSign, ascendant)}</p>
-                                    <p>• ${getRelationshipAdvice(sunSign, planets.venus)}</p>
-                                    <p>• ${getHealthAdvice(sunSign, planets.mars)}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border">
-                        <p class="text-center text-sm text-blue-700">
-                            🤖 <strong>تم إنشاء هذه القراءة بواسطة الذكاء الاصطناعي</strong><br>
-                            استناداً إلى بياناتك الفلكية وخوارزميات التحليل المتقدمة
-                        </p>
-                    </div>
-                    
-                    <div class="mt-6 text-center">
-                        <button onclick="closeAstrologyResult()" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors">
-                            ✅ إغلاق النتائج
-                        </button>
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(resultModal);
-            
-            // مسح النموذج
-            document.getElementById('astrologyName').value = '';
-            document.getElementById('birthDate').value = '';
-            document.getElementById('birthHour').value = '';
-            document.getElementById('birthMinute').value = '';
-            document.getElementById('birthPlace').value = '';
-            document.getElementById('astrologyPhone').value = '';
-        }
-        
-        // Helper functions for AI analysis
-        function getStrengths(sunSign, ascendant) {
-            const strengths = {
-                'الحمل': 'القيادة والشجاعة والمبادرة',
-                'الثور': 'الصبر والثبات والعملية',
-                'الجوزاء': 'الذكاء والتكيف والتواصل',
-                'السرطان': 'الحدس والرعاية والإخلاص',
-                'الأسد': 'الثقة والكرم والإبداع',
-                'العذراء': 'التنظيم والدقة والتحليل',
-                'الميزان': 'التوازن والعدالة والدبلوماسية',
-                'العقرب': 'القوة والعمق والتحول',
-                'القوس': 'التفاؤل والمغامرة والفلسفة',
-                'الجدي': 'الطموح والانضباط والمسؤولية',
-                'الدلو': 'الابتكار والاستقلالية والإنسانية',
-                'الحوت': 'الحدس والرحمة والفن'
-            };
-            return strengths[sunSign] || 'قوة شخصية متميزة';
-        }
-        
-        function getChallenges(sunSign, ascendant) {
-            const challenges = {
-                'الحمل': 'التسرع والعنف أحياناً',
-                'الثور': 'العناد والبطء في التغيير',
-                'الجوزاء': 'التشتت وعدم الثبات',
-                'السرطان': 'الحساسية المفرطة والتقلبات',
-                'الأسد': 'الغرور والحاجة للإعجاب',
-                'العذراء': 'النقد المفرط والقلق',
-                'الميزان': 'التردد وصعوبة اتخاذ القرار',
-                'العقرب': 'الغيرة والميل للانتقام',
-                'القوس': 'عدم الالتزام والمبالغة',
-                'الجدي': 'التشاؤم والجمود أحياناً',
-                'الدلو': 'البرود العاطفي والعناد',
-                'الحوت': 'الهروب من الواقع والحساسية'
-            };
-            return challenges[sunSign] || 'تحديات شخصية للنمو';
-        }
-        
-        function getCareerAdvice(sunSign, ascendant) {
-            const careers = {
-                'الحمل': 'القيادة والرياضة والأعمال',
-                'الثور': 'المال والفن والزراعة',
-                'الجوزاء': 'الإعلام والتعليم والتجارة',
-                'السرطان': 'الرعاية والطبخ والعقارات',
-                'الأسد': 'الفن والترفيه والإدارة',
-                'العذراء': 'الصحة والتحليل والخدمات',
-                'الميزان': 'القانون والفن والعلاقات',
-                'العقرب': 'البحث والطب والتحقيق',
-                'القوس': 'التعليم والسفر والفلسفة',
-                'الجدي': 'الإدارة والهندسة والحكومة',
-                'الدلو': 'التكنولوجيا والعلوم والإنسانية',
-                'الحوت': 'الفن والطب والروحانيات'
-            };
-            return careers[sunSign] || 'مجالات متنوعة تناسب شخصيتك';
-        }
-        
-        function getFutureAdvice(sunSign, ascendant) {
-            const advice = [
-                'ركز على تطوير نقاط قوتك الطبيعية',
-                'تعلم من التحديات واستخدمها للنمو',
-                'حافظ على التوازن بين العمل والحياة الشخصية',
-                'استثمر في العلاقات الإيجابية',
-                'كن صبوراً مع نفسك في رحلة التطور'
-            ];
-            return advice[Math.floor(Math.random() * advice.length)];
-        }
-        
-        function getRelationshipAdvice(sunSign, venus) {
-            return `في العلاقات، ركز على التواصل الصادق والتفهم المتبادل. برج الزهرة في ${venus} يشير إلى أهمية الجمال والانسجام في علاقاتك.`;
-        }
-        
-        function getHealthAdvice(sunSign, mars) {
-            return `للصحة، حافظ على النشاط البدني المنتظم. برج المريخ في ${mars} يشير إلى أهمية توجيه طاقتك بشكل إيجابي.`;
-        }
-        
-        // Close astrology result modal
-        function closeAstrologyResult() {
-            const modal = document.querySelector('.fixed.inset-0.bg-black.bg-opacity-50');
-            if (modal) {
-                modal.remove();
-            }
-        }
-
-        // Initialize UI on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            updateSubscriptionUI();
-        });
-        
-        // Close modals when clicking outside
-        window.onclick = function(event) {
-            const modals = ['books', 'zodiac', 'donation', 'horoscope', 'astrology', 'service'];
-            modals.forEach(modal => {
-                const modalElement = document.getElementById(modal + 'Modal');
-                if (modalElement && event.target === modalElement) {
-                    if (modal === 'service') {
-                        closeServiceModal();
-                    } else {
-                        closeModal(modal);
-                    }
-                }
-            });
-        }
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98830e3927222e45',t:'MTc1OTM5NjExMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
-"إضافة موقع صانع وعي"
